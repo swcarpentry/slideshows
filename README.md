@@ -9,9 +9,11 @@ All credit for the recommendations presented in these slides should go
 to the authors of [1]. My only contribution, if any, is a few Python
 snippets used to exemplify a couple of the recommendations.
 
+Improvement suggestions and corrections are very welcome in the form
+of pull requests or issues for this repository.
+
 The slide set is produced in LaTeX (with Beamer) and the repository
-also includes the resulting PDF. The files are licensed under Creative
-Commons Attribution 4.0 (CC-BY).
+also includes the resulting PDF.
 
 <a rel="license"
 href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative
