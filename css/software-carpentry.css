@@ -423,24 +423,22 @@ a:hover, a:focus {
   font-weight: normal;
 }
 .deck-container:not(.no-status) > .slide {
-  padding-bottom: 0px;
-  padding: 160px 50px;
-  text-align: justify;
-  background: url(software-carpentry-banner.png) bottom 10px left 10px no-repeat;
+  background: url(../img/software-carpentry-banner.png) bottom 10px left 10px no-repeat;
   background-size: 150px;
-  /*
-  &>ul, &>ol {
-      padding: 0;
-      margin: 0;
-  }
-  */
-}
-.deck-container:not(.no-status) > .slide.no-bullets ol, .deck-container:not(.no-status) > .slide.no-bullets ul {
-  list-style: none;
 }
 .deck-container .slide :not(h1):not(h2) {
   /* TODO: the original style mispelled the font name, so it was using Helvetica for everything but the titles, this line does the same. */
   font-family: 'Helvetica', 'Arial', 'sans';
+}
+
+.deck-container .slide {
+  margin: 0;
+  padding: 160px 50px;
+  /*        text-align: justify;*/
+}
+
+.slide.no-bullets ol, .slide.no-bullets ul {
+  list-style: none;
 }
 
 .slide .center {
@@ -676,7 +674,7 @@ pre {
 }
 
 code {
-  color: #888;
+  color: #555;
 }
 
 blockquote {
@@ -694,16 +692,20 @@ a:hover {
   text-decoration: none;
 }
 
-.title-slide h1 {
+.slide.title-slide {
+  text-align: center;
+  padding-top: 325px;
+}
+.slide.title-slide h1 {
   padding-bottom: 50px;
   bottom: 50%;
   top: auto;
   height: auto;
   transform: none;
 }
-.title-slide img.logo {
+.slide.title-slide img.logo {
   position: absolute;
-  padding-top: 50px;
+  padding-top: 100px;
   left: 0;
   right: 0;
   top: 50%;
