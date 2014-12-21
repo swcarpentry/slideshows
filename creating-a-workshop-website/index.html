@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>Creating a Website for a Software Carpentry Workshop</title>
+    <title>Creating a Workshop Website</title>
     <meta name="author" content="Greg Wilson">
     <!-- meta name="audio" content="voiceover.ogg" -->
     <!-- meta name="timings" content="timings.json" -->
@@ -13,173 +13,173 @@
     <script src="../js/deckjs-custom.js"></script>
     <script>includedeck(["../css/software-carpentry.css"],{});</script> 
     <style>
-        /* title is long... */
-        .slide.title-slide h1 {padding-bottom: 0;}
+      .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+      a {text-decoration: underline;} /* make links clearer */
     </style>
   </head>
   <body>
     <div class="deck-container">
 
       <section class="slide title-slide" data-container-class="no-status">
-	<h1 class="var-title"></h1>
-	<p>January 2015</p>
-	<img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
+        <h1 class="var-title"></h1>
+        <p>January 2015</p>
+        <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
       </section>
 
       <section class="slide">
-	<h2>What</h2>
-	<p>Create a website for a Software Carpentry workshop</p>
-	<p>See <a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a> for full instructions</li>
+        <h2>What</h2>
+        <p>Create a website for a Software Carpentry workshop</p>
+        <p>See <a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a> for full instructions</li>
       </section>
 
       <section class="slide">
-	<h2>Why</h2>
-	<ol>
-	  <li>Let instructors make changes without editing the main website</li>
-	  <li>Uniform appearance and metadata</li>
-	  <li>Make sure at least one instructor knows how to use GitHub</li>
-	</ol>
+        <h2>Why</h2>
+        <ol>
+          <li>Let instructors make changes without editing the main website</li>
+          <li>Uniform appearance and metadata</li>
+          <li>Make sure at least one instructor knows how to use GitHub</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>How</h2>
-	<ol>
-	  <li>Create a brand new repository on GitHub</li>
-	  <li>Clone to desktop</li>
-	  <li>Pull content from <code>workshop-template</code></li>
-	  <li>Edit and check</li>
-	  <li>Push to <code>gh-pages</code> branch</li>
-	</ol>
+        <h2>How</h2>
+        <ol>
+          <li>Create a brand new repository on GitHub</li>
+          <li>Clone to desktop</li>
+          <li>Pull content from <code>workshop-template</code></li>
+          <li>Edit and check</li>
+          <li>Push to <code>gh-pages</code> branch</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>How</h2>
-	<img src="img/steps.svg" alt="Steps" />
+        <h2>How</h2>
+        <img src="img/steps.svg" alt="Steps" />
       </section>
 
       <section class="slide">
-	<h2>Why?</h2>
-	<ul>
-	  <li>A user can only fork a repository once on GitHub</li>
-	  <li>But instructors may teach many workshops</li>
-	</ul>
+        <h2>Why?</h2>
+        <ul>
+          <li>A user can only fork a repository once on GitHub</li>
+          <li>But instructors may teach many workshops</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>The Simple Way</h2>
-	<ol>
-	  <li>Download <a href="http://files.software-carpentry.org/swc-workshop-create">http://files.software-carpentry.org/swc-workshop-create</a></li>
-	  <li><code>swc-workshop-create YYYY-MM-DD-site "Workshop Title" your_github_id ...other instructors...</code></li>
-	  <li>Does steps 1-3 below</li>
-	</ol>
+        <h2>The Simple Way</h2>
+        <ol>
+          <li>Download <a href="http://files.software-carpentry.org/swc-workshop-create">http://files.software-carpentry.org/swc-workshop-create</a></li>
+          <li><code>swc-workshop-create YYYY-MM-DD-site "Workshop Title" your_github_id ...other instructors...</code></li>
+          <li>Does steps 1-3 below</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>1. Create Repository</h2>
-	<ul>
-	  <li><em>Not</em> a fork of <code>workshop-template</code></li>
-	  <li>Name it YYYY-MM-DD-site</li>
-	  <li>Can be owned by anyone</li>
-	</ul>
+        <h2>1. Create Repository</h2>
+        <ul>
+          <li><em>Not</em> a fork of <code>workshop-template</code></li>
+          <li>Name it YYYY-MM-DD-site</li>
+          <li>Can be owned by anyone</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>2. Clone to Desktop</h2>
-	<p><code>git clone git@github.com:user/YYYY-MM-DD-site.git</code></p>
+        <h2>2. Clone to Desktop</h2>
+        <p><code>git clone git@github.com:user/YYYY-MM-DD-site.git</code></p>
       </section>
 
       <section class="slide">
-	<h2>3. Get Template Content</h2>
-	<ol>
-	  <li><code>git remote add template https://github.com/swcarpentry/workshop-template.git</code></li>
-	  <li><code>git checkout -b gh-pages</code></li>
-	  <li><code>git pull template gh-pages</code></li>
-	  <li><code>git remote rm template</code></li>
-	</ol>
+        <h2>3. Get Template Content</h2>
+        <ol>
+          <li><code>git remote add template https://github.com/swcarpentry/workshop-template.git</code></li>
+          <li><code>git checkout -b gh-pages</code></li>
+          <li><code>git pull template gh-pages</code></li>
+          <li><code>git remote rm template</code></li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>Interlude: Why <code>gh-pages</code>?</h2>
-	<ul>
-	  <li>So GitHub will automatically create <code>http://user.github.io/YYYY-MM-DD-site</code></li>
-	</ul>
+        <h2>Why <code>gh-pages</code>?</h2>
+        <ul>
+          <li>So GitHub will automatically create <code>http://user.github.io/YYYY-MM-DD-site</code></li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>4. Edit and Check</h2>
-	<ol>
-	  <li>Change the URLs in <code>_config.yml</code></li>
-	  <li>Modify <code>index.html</code> (see below)</li>
-	  <li>Run <code>tools/check.py</code> to validate</li>
-	  <li>Can also run:
-	    <ul>
-	      <li><code>tools/preview</code> to preview locally (requires Jekyll)</li>
-	      <li><code>tools/clean</code> to clean up</li>
-	    </ul>
-	  </li>
-	</ol>
+        <h2>4. Edit and Check</h2>
+        <ol>
+          <li>Change the URLs in <code>_config.yml</code></li>
+          <li>Modify <code>index.html</code> (see below)</li>
+          <li>Run <code>tools/check.py</code> to validate</li>
+          <li>Can also run:
+            <ul>
+              <li><code>tools/preview</code> to preview locally (requires Jekyll)</li>
+              <li><code>tools/clean</code> to clean up</li>
+            </ul>
+          </li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>5. Push to Publish</h2>
-	<ul>
-	  <li><code>git push origin gh-pages</code></li>
-	  <li>Check <code>http://user.github.io/YYYY-MM-DD-site</code></li>
-	</ul>
+        <h2>5. Push to Publish</h2>
+        <ul>
+          <li><code>git push origin gh-pages</code></li>
+          <li>Check <code>http://user.github.io/YYYY-MM-DD-site</code></li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>How the Magic Works</h2>
-	<ul>
-	  <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to create websites</li>
-	  <li>Combines <code>key:value</code> data from page header and <code>_config.yml</code>...</li>
-	  <li>...with page templates stored in <code>_layouts</code>...</li>
-	  <li>...and snippets for headers and footers stored in <code>_includes</code>...</li>
-	  <li>...to turn Markdown or HTML into finished pages</li>
-	</ul>
+        <h2>How the Magic Works</h2>
+        <ul>
+          <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to create websites</li>
+          <li>Combines <code>key:value</code> data from page header and <code>_config.yml</code>...</li>
+          <li>...with page templates stored in <code>_layouts</code>...</li>
+          <li>...and snippets for headers and footers stored in <code>_includes</code>...</li>
+          <li>...to turn Markdown or HTML into finished pages</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>What to Edit</h2>
-	<ul>
-	  <li>Change a few values in the header of <code>index.html</code></li>
-	  <li>Make sure the syllabus and schedule are right</li>
-	  <li>Delete or uncomment setup instructions</li>
-	  <li>See <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">CUSTOMIZATION.md</a> for full instructions</li>
-	</ul>
+        <h2>What to Edit</h2>
+        <ul>
+          <li>Change a few values in the header of <code>index.html</code></li>
+          <li>Make sure the syllabus and schedule are right</li>
+          <li>Delete or uncomment setup instructions</li>
+          <li>See <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">CUSTOMIZATION.md</a> for full instructions</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>Going Further</h2>
-	<ul>
-	  <li>Add data files to your repository</li>
-	  <li>Link to other sites</li>
-	  <li>Create new pages using the <code>page</code> layout</li>
-	</ul>
+        <h2>Going Further</h2>
+        <ul>
+          <li>Add data files to your repository</li>
+          <li>Link to other sites</li>
+          <li>Create new pages using the <code>page</code> layout</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>Improving the Template</h2>
-	<ul>
-	  <li>Fork <code>workshop-template</code> and send pull requests as usual
-	    <ul>
-	      <li>Entries for <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a> are particularly welcome</li>
-	    </ul>
-	  </li>
-	  <li>File issues when anything goes wrong, gets in your way, seems confusing, ...</li>
-	</ul>
+        <h2>Improving the Template</h2>
+        <ul>
+          <li>Fork <code>workshop-template</code> and send pull requests as usual
+            <ul>
+              <li>Entries for <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a> are particularly welcome</li>
+            </ul>
+          </li>
+          <li>File issues when anything goes wrong, gets in your way, seems confusing, ...</li>
+        </ul>
       </section>
 
       <section class="slide" data-container-class="no-status">
-	<h2>Further Reading</h2>
-	<ul>
-	  <li><a href="https://github.com/swcarpentry/workshop-template">Home page</a></li>
-	  <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">customization</a></li>
-	  <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/DESIGN.md">design notes</a></li>
-	  <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a></li>
-	</ul>
-	<p>Thanks to everyone who made this possible</p>
-	<p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+        <h2>Further Reading</h2>
+        <ul>
+          <li><a href="https://github.com/swcarpentry/workshop-template">Home page</a></li>
+          <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">customization</a></li>
+          <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/DESIGN.md">design notes</a></li>
+          <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a></li>
+        </ul>
+        <p align="center">Thanks to everyone who made this possible</p>
+        <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
       </section>
 
     </div>

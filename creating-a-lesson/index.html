@@ -5,199 +5,203 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>Creating a Workshop Website</title>
+    <title>Creating a Lesson</title>
     <meta name="author" content="Greg Wilson">
     <!-- meta name="audio" content="voiceover.ogg" -->
     <!-- meta name="timings" content="timings.json" -->
 
     <script src="../js/deckjs-custom.js"></script>
     <script>includedeck(["../css/software-carpentry.css"],{});</script> 
+    <style>
+      .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+      a {text-decoration: underline;} /* make links clearer */
+    </style>
   </head>
   <body>
     <div class="deck-container">
 
-      <section class="slide">
-	<h1>Creating a Lesson for Software Carpentry</h1>
-	<p>January 2015</p>
-	<p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+      <section class="slide title-slide" data-container-class="no-status">
+        <h1 class="var-title"></h1>
+        <p>January 2015</p>
+        <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
       </section>
 
       <section class="slide">
-	<h2>What</h2>
-	<p>Create a new lesson for Software Carpentry</p>
-	<p>See <a href="https://github.com/swcarpentry/lesson-template">https://github.com/swcarpentry/lesson-template</a> for full instructions</li>
+        <h2>What</h2>
+        <p>Create a new lesson for Software Carpentry</p>
+        <p>See <a href="https://github.com/swcarpentry/lesson-template">https://github.com/swcarpentry/lesson-template</a> for full instructions</li>
       </section>
 
       <section class="slide">
-	<h2>Why</h2>
-	<ol>
-	  <li>Modularize lessons like software libraries
-	    <ul>
-	      <li>One lesson per repo, one repo per lesson</li>
-	    </ul>
-	  </li>
-	  <li>Simplify contribution
-	    <ul>
-	      <li>Anyone can own the repo</li>
-	      <li>Avoid notifications about uninteresting lessons</li>
-	    </ul>
-	  </li>
-	  <li>Uniform appearance and metadata</li>
-	</ol>
+        <h2>Why</h2>
+        <ol>
+          <li>Modularize lessons like software libraries
+            <ul>
+              <li>One lesson per repo, one repo per lesson</li>
+            </ul>
+          </li>
+          <li>Simplify contribution
+            <ul>
+              <li>Anyone can own the repo</li>
+              <li>Avoid notifications about uninteresting lessons</li>
+            </ul>
+          </li>
+          <li>Uniform appearance and metadata</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>How</h2>
-	<ol>
-	  <li>Create a brand new repository on GitHub</li>
-	  <li>Clone to desktop</li>
-	  <li>Pull content from <code>lesson-template</code></li>
-	  <li>Edit and check</li>
-	  <li>Push to repository's <code>gh-pages</code> branch</li>
-	</ol>
+        <h2>How</h2>
+        <ol>
+          <li>Create a brand new repository on GitHub</li>
+          <li>Clone to desktop</li>
+          <li>Pull content from <code>lesson-template</code></li>
+          <li>Edit and check</li>
+          <li>Push to repository's <code>gh-pages</code> branch</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>How</h2>
-	<img src="img/steps.svg" alt="Steps" />
+        <h2>How</h2>
+        <img src="img/steps.svg" alt="Steps" />
       </section>
 
       <section class="slide">
-	<h2>Why?</h2>
-	<ul>
-	  <li>A user can only fork a repository once on GitHub</li>
-	  <li>But authors may work on many lessons</li>
-	</ul>
+        <h2>Why?</h2>
+        <ul>
+          <li>A user can only fork a repository once on GitHub</li>
+          <li>But authors may work on many lessons</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>1. Create Repository</h2>
-	<ul>
-	  <li><em>Not</em> a fork of <code>lesson-template</code></li>
-	  <li>Name it topic-level or topic-level-something
-	    <ul>
-	      <li>
-		E.g., <a href="https://github.com/swcarpentry/shell-novice">shell-novice</a>
-		or
-		<a href="https://github.com/swcarpentry/python-novice-inflammation">python-novice-inflammation</a>
-	      </li>
-	    </ul>
-	  </li>
-	  <li>Can be owned by anyone</li>
-	</ul>
+        <h2>1. Create Repository</h2>
+        <ul>
+          <li><em>Not</em> a fork of <code>lesson-template</code></li>
+          <li>Name it topic-level or topic-level-something
+            <ul>
+              <li>
+                E.g., <a href="https://github.com/swcarpentry/shell-novice">shell-novice</a>
+                or
+                <a href="https://github.com/swcarpentry/python-novice-inflammation">python-novice-inflammation</a>
+              </li>
+            </ul>
+          </li>
+          <li>Can be owned by anyone</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>2. Clone to Desktop</h2>
-	<p><code>git clone git@github.com:user/some-title.git</code></p>
+        <h2>2. Clone to Desktop</h2>
+        <p><code>git clone git@github.com:user/some-title.git</code></p>
       </section>
 
       <section class="slide">
-	<h2>3. Get Template Content</h2>
-	<ol>
-	  <li><code>git remote add template https://github.com/swcarpentry/lesson-template.git</code></li>
-	  <li><code>git checkout -b gh-pages</code></li>
-	  <li><code>git pull template gh-pages</code></li>
-	  <li><code>git remote rm template</code></li>
-	</ol>
+        <h2>3. Get Template Content</h2>
+        <ol>
+          <li><code>git remote add template https://github.com/swcarpentry/lesson-template.git</code></li>
+          <li><code>git checkout -b gh-pages</code></li>
+          <li><code>git pull template gh-pages</code></li>
+          <li><code>git remote rm template</code></li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>Interlude: Why <code>gh-pages</code>?</h2>
-	<ul>
-	  <li>So GitHub will automatically create <code>http://user.github.io/some-title</code></li>
-	</ul>
+        <h2>Why <code>gh-pages</code>?</h2>
+        <ul>
+          <li>So GitHub will automatically create <code>http://user.github.io/some-title</code></li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>And What Does the Template Contain?</h2>
-	<ul>
-	  <li>Description of required files and formatting rules</li>
-	  <li>Example files</li>
-	  <li>Validation tool</li>
-	</ul>
+        <h2>What's in the Template?</h2>
+        <ul>
+          <li>Description of required files and formatting rules</li>
+          <li>Example files</li>
+          <li>Validation tool</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>An Alternative</h2>
-	<ul>
-	  <li><code>git pull template core</code> omits example files</li>
-	  <li>Still pull while in the lesson's <code>gh-pages</code> branch</li>
-	  <li>Use <code>core</code> branch for updates (see below)</li>
-	</ul>
+        <h2>An Alternative</h2>
+        <ul>
+          <li><code>git pull template core</code> omits example files</li>
+          <li>Still pull while in the lesson's <code>gh-pages</code> branch</li>
+          <li>Use <code>core</code> branch for updates (see below)</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>4. Edit...</h2>
-	<ol>
-	  <li>See the <a href="https://github.com/swcarpentry/lesson-template">README</a> for general instructions</li>
-	  <li>And <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
-	  <li>There are <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/DESIGN.md">notes on design</a></li>
-	  <li>
-	    And an <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/FAQ.md">FAQ</a>
-	    (additions welcome)
-	  </li>
-	</ol>
+        <h2>4. Edit...</h2>
+        <ol>
+          <li>See the <a href="https://github.com/swcarpentry/lesson-template">README</a> for general instructions</li>
+          <li>And <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
+          <li>There are <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/DESIGN.md">notes on design</a></li>
+          <li>
+            And an <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/FAQ.md">FAQ</a>
+            (additions welcome)
+          </li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>4. ...and Check</h2>
-	<ol>
-	  <li><code>make commands</code>: Display available commands</li>
-	  <li><code>make preview</code>: Build pages locally
-	    <ul>
-	      <li>Requires <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> and other things</li>
-	    </ul>
-	  </li>
-	  <li><code>make settings</code>: Show variables and settings</li>
-	  <li><code>make clean</code>: Clean up temporary and intermediate files</li>
-	</ol>
+        <h2>4. ...and Check</h2>
+        <ol>
+          <li><code>make commands</code>: Display available commands</li>
+          <li><code>make preview</code>: Build pages locally
+            <ul>
+              <li>Requires <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> and other things</li>
+            </ul>
+          </li>
+          <li><code>make settings</code>: Show variables and settings</li>
+          <li><code>make clean</code>: Clean up temporary and intermediate files</li>
+        </ol>
       </section>
 
       <section class="slide">
-	<h2>Interlude: Sometimes Wrong is Right</h2>
-	<ul>
-	  <li>We put generated HTML in the same branch and directory as Markdown source</li>
-	  <li>Generally a bad idea...</li>
-	  <li>...but means paths to image and data files are the same in both...</li>
-	  <li>...and avoids cross-branch compilation</li>
-	</ul>
+        <h2>When Wrong is Right</h2>
+        <ul>
+          <li>We put generated HTML in the same branch and directory as Markdown source</li>
+          <li>Generally a bad idea...</li>
+          <li>...but means paths to image and data files are the same in both...</li>
+          <li>...and avoids cross-branch compilation</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>And Why Markdown? And Pandoc?</h2>
-	<ul>
-	  <li>IPython Notebooks proved difficult to diff and merge</li>
-	  <li>Other formats (e.g., reStructured Text) are only used by one community</li>
-	  <li>Use Pandoc because GitHub's Markdown doesn't support tables, title attributes, etc.</li>
-	</ul>
+        <h2>Markdown and Pandoc</h2>
+        <ul>
+          <li>IPython Notebooks proved difficult to diff and merge</li>
+          <li>Other formats (e.g., reStructured Text) are only used by one community</li>
+          <li>Use Pandoc because GitHub's Markdown doesn't support tables, title attributes, etc.</li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>5. Push to Publish</h2>
-	<ul>
-	  <li><code>git push origin gh-pages</code> to push generated HTML to GitHub</li>
-	  <li>Check <code>http://user.github.io/some-title</code></li>
-	</ul>
+        <h2>5. Push to Publish</h2>
+        <ul>
+          <li><code>git push origin gh-pages</code> to push generated HTML to GitHub</li>
+          <li>Check <code>http://user.github.io/some-title</code></li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>Improving the Template</h2>
-	<ul>
-	  <li>Fork <code>lesson-template</code> and send pull requests as usual</li>
-	  <li>File issues when anything goes wrong, gets in your way, seems confusing, ...</li>
-	</ul>
+        <h2>Improving the Template</h2>
+        <ul>
+          <li>Fork <code>lesson-template</code> and send pull requests as usual</li>
+          <li>File issues when anything goes wrong, gets in your way, seems confusing, ...</li>
+        </ul>
       </section>
 
-      <section class="slide">
-	<h2>Looking Ahead</h2>
-	<ul>
-	  <li>Automatically collect links to lessons on GitHub</li>
-	  <li>Issue DOIs for (particular versions of) lessons</li>
-	  <li>Package lessons for distribution via off-the-shelf package managers</li>
-	</ul>
-	<p>Thanks to everyone who made this possible</p>
-	<p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+      <section class="slide" data-container-class="no-status">
+        <h2>Looking Ahead</h2>
+        <ul>
+          <li>Automatically collect links to lessons on GitHub</li>
+          <li>Issue DOIs for (particular versions of) lessons</li>
+          <li>Package lessons for distribution via off-the-shelf package managers</li>
+        </ul>
+        <p align="center">Thanks to everyone who made this possible</p>
+        <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
       </section>
 
     </div>
