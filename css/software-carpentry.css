@@ -425,7 +425,7 @@ a:hover, a:focus {
 .deck-container:not(.no-status) > .slide {
   padding-bottom: 0px;
   padding: 160px 50px;
-  text-align: justify;
+/*  text-align: justify;*/
   background: url(software-carpentry-banner.png) bottom 10px left 10px no-repeat;
   background-size: 150px;
   /*
@@ -703,11 +703,15 @@ a:hover {
 }
 .title-slide img.logo {
   position: absolute;
-  padding-top: 50px;
+  padding-top: 100px;
   left: 0;
   right: 0;
   top: 50%;
   align: center;
+}
+.deck-container>.slide.title-slide {
+  padding-top: 300px;
+  text-align: center;
 }
 
 .progress-bar {
