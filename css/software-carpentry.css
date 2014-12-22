@@ -339,12 +339,8 @@ h2 {
   text-align: center;
 }
 
-.deck-container > .slide > ul, .deck-container > .slide > ol {
-  list-style: disc outside none;
-}
 .deck-container > .slide > ul > li ul, .deck-container > .slide > ul > li ol, .deck-container > .slide > ol > li ul, .deck-container > .slide > ol > li ol {
   line-height: 0.85em;
-  list-style: square outside none;
   margin-bottom: 0px;
 }
 .deck-container > .slide > ul > li ul > li ul, .deck-container > .slide > ul > li ul > li ol, .deck-container > .slide > ul > li ol > li ul, .deck-container > .slide > ul > li ol > li ol, .deck-container > .slide > ol > li ul > li ul, .deck-container > .slide > ol > li ul > li ol, .deck-container > .slide > ol > li ol > li ul, .deck-container > .slide > ol > li ol > li ol {
@@ -365,6 +361,12 @@ h2 {
   padding: 0;
   margin-top: 0.5em;
   padding-left: 0em;
+}
+.deck-container > .slide > ul {
+  list-style: disc outside none;
+}
+.deck-container > .slide > ul > li ul {
+  list-style: square outside none;
 }
 
 blockquote {
