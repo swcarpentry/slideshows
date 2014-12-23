@@ -29,7 +29,10 @@
 
       <section class="slide">
         <h2>What</h2>
-        <p align="center">Create a website for a workshop</p>
+	<div align="center"
+          <p>Create a website for a workshop</p>
+	  <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
+        </div>
       </section>
 
       <section class="slide">
@@ -48,7 +51,7 @@
           <li>Clone to desktop</li>
           <li>Pull content from <code>workshop-template</code></li>
           <li>Edit and check</li>
-          <li>Push to <code>gh-pages</code> branch</li>
+          <li>Push to repository's <code>gh-pages</code> branch</li>
         </ol>
       </section>
 
@@ -67,7 +70,7 @@
       </section>
 
       <section class="slide">
-        <h2>How the Magic Works</h2>
+        <h2>How It Works</h2>
         <ul>
           <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to create websites</li>
           <li>Combines <code>key:value</code> data from page header...</li>
@@ -99,32 +102,32 @@
 
       <section class="slide">
         <h2>3. Get Template Content</h2>
-        <ol>
-          <li>Make connection to template directory</li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="1">Make connection to template directory</li>
 	</ol>
-<pre>$ git remote add upstream https://github.com/swcarpentry/workshop-template.git</pre>
+<pre>$ git remote add template https://github.com/swcarpentry/workshop-template.git</pre>
       </section>
 
       <section class="slide">
         <h2>3. Get Template Content</h2>
-        <ol>
-          <li>Make a <code>gh-pages</code> branch</li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="2">Make a <code>gh-pages</code> branch</li>
 	</ol>
 <pre>git checkout -b gh-pages</pre>
       </section>
 
       <section class="slide">
         <h2>3. Get Template Content</h2>
-        <ol>
-          <li>Pull down the template</li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="3">Pull down the template</li>
 	</ol>
 <pre>$ git pull template gh-pages</pre>
       </section>
 
       <section class="slide">
         <h2>4. Edit and Check</h2>
-        <ol>
-          <li>Change the URLs in <code>_config.yml</code></li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="1">Change the URLs in <code>_config.yml</code></li>
 	</ol>
 <pre>
 lesson_repo     : "http://github.com/user/YYYY-MM-DD-site"
@@ -134,26 +137,25 @@ lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
 
       <section class="slide">
         <h2>4. Edit and Check</h2>
-        <ol>
-          <li>Modify <code>index.html</code> (discussed below)</li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="2">Modify <code>index.html</code> (discussed below)</li>
 	</ol>
       </section>
 
       <section class="slide">
         <h2>4. Edit and Check</h2>
-        <ol>
-          <li>Run <code>tools/check.py</code> to validate</li>
-          <li>Can also run:
-            <ul>
-              <li><code>tools/preview</code> to preview locally</li>
-              <li><code>tools/clean</code> to clean up</li>
-            </ul>
-          </li>
+        <ol style="list-style-type: lower-alpha">
+          <li value="3">Run <code>tools/check.py</code> to validate...</li>
+          <li>...<code>tools/preview</code> to preview locally...</li>
+          <li>...or <code>tools/clean</code> to clean up</li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>5. Push to Publish</h2>
+        <h2>5. Publish</h2>
+        <ul>
+          <li>Push to website</li>
+        </ul>
 <pre>$ git push origin gh-pages</pre>
         <ul>
           <li>Check <code>http://user.github.io/YYYY-MM-DD-site</code></li>
@@ -163,11 +165,11 @@ lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
       <section class="slide">
         <h2>The Simple Way</h2>
         <ol>
-          <li>Download the setup script</li>
+          <li value="1">Download the setup script</li>
 	</ol>
 <pre>$ wget <a href="http://files.software-carpentry.org/swc-workshop-create">http://files.software-carpentry.org/swc-workshop-create</a></pre>
 	<ol>
-          <li>Run it to do steps 1-3 above</li>
+          <li value="2">Run it to do steps 1-3 above</li>
 	</ol>
 <pre>$ swc-workshop-create YYYY-MM-DD-site "Title" github_id</pre>
       </section>
@@ -207,7 +209,10 @@ lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
           <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/DESIGN.md">Design notes</a></li>
           <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a> (additions welcome)</li>
         </ul>
-        <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+	<div align="center">
+	  <p><em>Thank you for listening</em></p>
+          <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+	</div>
       </section>
 
     </div>
