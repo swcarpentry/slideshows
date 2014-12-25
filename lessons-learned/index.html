@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Software Carpentry: Lessons Learned</title>
+    <meta name="author" content="Greg Wilson">
+    <!-- meta name="audio" content="voiceover.ogg" -->
+    <!-- meta name="timings" content="timings.json" -->
+
+    <script src="../js/deckjs-custom.js"></script>
+    <script>includedeck(["../css/software-carpentry.css"],{});</script>
+    <style>
+      .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+      a {text-decoration: underline;} /* make links clearer */
+      pre {font-size: 75%;} /* make code blocks smaller */
+      p.lesson {text-align: center; font-size: 120%; font-style: italic; } /* make lessons larger */
+    </style>
+  </head>
+  <body>
+    <div class="deck-container">
+
+      <section class="slide title-slide" data-container-class="no-status">
+        <h1 style="font-size: 230%;">Software Carpentry:<br/>Lessons Learned</h1>
+        <p>January 2015</p>
+        <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
+      </section>
+      
+      <section class="slide">
+	<h2>Our Mission</h2>
+	<p align="center">
+	  To make researchers more productive
+	  by teaching them basic lab skills for scientific computing.
+	</p>
+	<table width="100%">
+	  <tr>
+	    <td style="vertical-align:middle;"><img src="world.jpg" alt="Earth" /></td>
+	    <td style="vertical-align:middle;">&nbsp;&nbsp;</td>
+	    <td style="vertical-align:middle;">
+	      <p style="font-size: 90%;">
+		Because life's too short to not save the world.
+	      </p>
+	    </td>
+	  </tr>
+	</table>
+      </section>
+      
+      <section class="slide">
+	<h2>Credo</h2>
+	<table width="100%">
+	  <tr>
+	    <td><img src="terry-pratchett.png" alt="Terry Pratchett" /></td>
+	    <td>&nbsp;&nbsp;</td>
+	    <td style="font-size: 90%;">
+	      <p>
+	      If you build a man a fire,
+	      you'll keep him warm for a night.
+	      If you set a man on fire,
+	      you'll keep him warm for the rest of his life.
+	      </p>
+	      <p>
+	      &mdash; Terry Pratchett
+	      </p>
+	    </td>
+	  </tr>
+	</table>
+      </section>
+
+      <section class="slide">
+	<h2>Not an Overnight Success</h2>
+	<img src="lanl-1998-07.jpg" "Los Alamos National Laboratory, July 1998" />
+	<p align="center" style="font-size: 75%">Los Alamos National Laboratory, July 1998</p>
+	<p align="center">If you were born then, you can drive now.</p>
+      </section>
+      
+      <section class="slide">
+	<h2>Our Results</h2>
+	<ul>
+	  <li>
+	    20% improvement in productivity is common
+	  </li>
+	  <li>
+	    10X isn't rare
+	  </li>
+	  <li>
+	    Do the old things faster
+	  </li>
+	  <li>
+	    Tackle new problems
+	  </li>
+	  <li>
+	    Ready for HPC, the cloud, big data, ...
+	  </li>
+	  <li>
+	    Start <em>doing</em> open science
+	  </li>
+      </section>
+      
+      <section class="slide">
+	<h2>Why We Exist</h2>
+	<table>
+	  <tr>
+	    <td align="center"><img src="scanner.png" alt="scanner" /></td>
+	    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	    <td align="center"><img src="slum.png" alt="slum" /></td>
+	  </tr>
+	  <tr>
+	    <td align="center">HPC, the cloud, big data</td>
+	    <td></td>
+	    <td align="center">the other 92%</td>
+	  </tr>
+	</table>
+      </section>
+      
+      <section class="slide">
+	<h2>What We Teach</h2>
+	<div align="center">
+	  <table>
+	    <tr>
+	      <td>the Unix shell</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>automate repetitive tasks</td>
+	    </tr>
+	    <tr>
+	      <td>Git</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>track and share work</td>
+	    </tr>
+	    <tr>
+	      <td>Python or R</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>build modular code</td>
+	    </tr>
+	    <tr>
+	      <td>SQL</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>manage data</td>
+	    </tr>
+	  </table>
+	</div>
+	<br/>
+	<p align="center">Advertise the tool, teach the thinking</p>
+      </section>
+      
+      <section class="slide">
+	<h2>How We're Doing</h2>
+	<div align="center">
+	  <p><img src="../img/workshops-2010-2014.png" alt="Workshops 2010-2014" /></p>
+	  <p>2010-2014: 265 workshops for 9000 people</p>
+	</div>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #1</h2>
+	<p class="lesson">
+	  Most researchers think programming is
+	  <br/>
+	  a tax they have to pay to do science.
+	</p>
+	<p align="center">
+	  "If I wanted to be a computer scientist,
+	  <br/>
+	  I would have picked a different major in undergrad."
+	</p>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #2</h2>
+	<p class="lesson">They don't care about reproducibility.</p>
+	<ul>
+	  <li>Five million papers published 1990&ndash;2000.</li>
+	  <li>100 retracted for computational reasons.</li>
+	  <li>So odds of retraction = 1 in 50,000.</li>
+	  <li>Average paper takes eight months to produce.</li>
+	  <li>Reproducibility worth <em>115 seconds per paper</em>.</li>
+	</ul>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #3</h2>
+	<p class="lesson">They care <em>a lot</em> about productivity.</p>
+	<ul>
+	  <li>And about being able to tackle new problems.</li>
+	  <li>And about their careers.</li>
+	</ul>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #4</h2>
+	<p class="lesson">The curriculum is full.</p>
+	<ul>
+	  <li>"What do I drop to make room for more computing: quantum or thermo?"</li>
+	  <li>5 minutes per lecture &rArr; 4 courses in a degree</li>
+	  <li>Have to fit in <em>around</em> the curriculum until we achieve critical mass</li>
+	</ul>
+      </section>
+      
+      <section class="slide">
+	<h2>What Winning Looks Like</h2>
+        <table width="100%">
+          <tr>
+	    <td># Reviewers</td>
+	    <td>% Papers</td>
+	  </tr>
+	  <tr>
+	    <td>2</td>
+	    <td>10%</td>
+	  </tr>
+	  <tr>
+	    <td>3</td>
+	    <td>40%</td>
+	  </tr>
+	  <tr>
+	    <td>4</td>
+	    <td>40%</td>
+	  </tr>
+	  <tr>
+	    <td>5</td>
+	    <td>10%</td>
+          </tr>
+	  <tr>
+	    <td>P(at least one reviewer is a believer)</td>
+	    <td>50%</td>
+	  </tr>
+	  <tr>
+	    <td>P(single reviewer is a believer)</td>
+	    <td>18.3%</td>
+	  </tr>
+        </table>
+	<div>
+	  <br/>
+	  <p>We only have to change the mind of 1 scientist in 5</p>
+	</div>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #5</h2>
+	<p class="lesson">It's all in the details.</p>
+	<table width="100%">
+	  <tr>
+	    <td align="center">Two days</td>
+	    <td align="center">Charge a fee</td>
+	  </tr>
+	  <tr>
+	    <td align="center">Live coding</td>
+	    <td align="center">Sticky notes</td>
+	  </tr>
+	  <tr>
+	    <td align="center">Group signup</td>
+	    <td align="center">Peer instructors</td>
+	  </tr>
+	</table>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #6</h2>
+	<p class="lesson">Incentives, incentives, incentives.</p>
+	<table width="100%">
+	  <tr>
+	    <td align="center">Save the world</td>
+	    <td align="center">Make new friends</td>
+	  </tr>
+	  <tr>
+	    <td align="center">Self-defense</td>
+	    <td align="center">Teach to learn</td>
+	  </tr>
+	</table>
+	<br/>
+	<p align="center"><em>Boost their careers</em></p>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #7</h2>
+	<p class="lesson">There's a lot we don't know.</p>
+	<ul>
+	  <li>How to measure programmers' productivity?</li>
+	  <li>How to measure scientists' productivity?</li>
+	  <li>The unknowns <em>don't</em> cancel out</li>
+	</ul>
+	<p align="center">Our biggest failing is lack of systematic assessment</p>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #8</h2>
+	<p class="lesson">There's a lot we <u>do</u> know.</p>
+	<table width="100%">
+	  <tr>
+	    <td><a href="http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/"><img src="how-learning-works.png" /></a></td>
+	    <td><a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"><img src="making-software.jpg" alt="Making Software" /></a></td>
+	  </tr>
+	</table>
+      </section>
+      
+      <section class="slide">
+	<h2>For Example</h2>
+	<ul>
+	  <li><a href="http://tinyurl.com/guzdial-subgoals">Subgoals improve performance</a></li>
+	  <li><a href="http://tinyurl.com/guzdial-facts-skills">Practice works best for facts,<br/>worked examples for skills</a></li>
+	  <li><a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a></li>
+	  <li><a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first increases retention</a></li>
+	</ul>
+	<p align="center">Read <a href="http://computinged.wordpress.com/">http://computinged.wordpress.com/</a></p>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #9</h2>
+	<p class="lesson">Most people would rather fail than change.</p>
+	<p align="center">
+	  Most scientists treat research on teaching and programming
+	  like most politicians treat research on climate change.
+	</p>
+      </section>
+      
+      <section class="slide">
+	<h2>Lesson #10</h2>
+	<p class="lesson">Open isn't just for science.</p>
+	<ul>
+	  <li>Our lessons have had over 150 contributors</li>
+	  <li>We can write them the way we write software and encyclopedias</li>
+	</ul>
+	<p class="lesson">Open collaboration is the real revolution.</p>
+      </section>
+
+      <section class="slide" data-container-class="no-status">
+        <h2 style="font-size: 160%;">Software Carpentry Foundation</h2>
+	<ul>
+	  <li>A non-profit organization funded by grants, institutional memberships, and workshop fees</li>
+	  <li>See <a href="http://software-carpentry.org">http://software-carpentry.org</a> for details</li>
+	</ul>
+	<div align="center">
+	  <p><em>Thank you for listening</em></p>
+          <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+	</div>
+      </section>
+
+    </div>
+  </body>
+</html>
