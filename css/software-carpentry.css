@@ -335,6 +335,10 @@ h2 {
   width: 100%;
 }
 
+.deck-container > .slide.noh2, .deck-container > .slide.noH2 {
+  padding-top: 0;
+}
+
 h2 {
   text-align: center;
 }
