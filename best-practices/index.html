@@ -17,433 +17,455 @@
       .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
       a {text-decoration: underline;} /* make links clearer */
       pre {font-size: 75%;} /* make code blocks smaller */
-      p.lesson {text-align: center; font-size: 120%; font-style: italic; } /* make lessons larger */
+      p.rule {text-align: center; font-style: italic; } /* make lessons larger */
+      p.small {font-size: 80%;}
+      h3.rule {text-align: center; color: #2b3990;}
     </style>
   </head>
   <body>
     <div class="deck-container">
 
       <section class="slide title-slide" data-container-class="no-status">
-        <h1 style="font-size: 230%;">Best Practices in Scientific Computing</h1>
+        <h1 style="font-size: 230%;">Best Practices in<br/>Scientific Computing</h1>
         <p>January 2015</p>
         <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
       </section>
 
       <section class="slide">
-	<h2>Topics</h2>
+	<h2>Background</h2>
 	<ul>
-	  <li>Best practice guidelines for developing software</li>
-	  <li>General advice for developing scientific software</li>
-	  <li>Principles of testing and validation of scientific software</li>
+	  <li>Software is lab equipment for the 21st Century</li>
+	  <li>Scientists spend a lot of time writing it</li>
+	  <li>But over 90% are self-taught</li>
+	  <li>They don't know what "good" looks like</li>
+	  <li>So we describe 24 practices in 8 groups</li>
 	</ul>
       </section>
 
       <section class="slide">
-	<h2>You Will Be Able To:</h2>
+	<h4 align="center">Good programmers are<br/>10X more productive than average</h4>
+      </section>
+
+      <section class="slide">
+	<h4 align="center">Good <strike>programmers</strike> are<br/>10X more productive than average</h4>
+      </section>
+
+      <section class="slide">
+	<h4 align="center">Good <em><strong>practices</strong></em> are<br/>10X more productive</h4>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 1</h2>
+	<h3 class="rule">Write Programs for People,<br/>not Computers</h3>
 	<ul>
-	  <li>Apply a set of guidelines to the development of software in your projects</li>
-	  <li>Structure your software development process for clarity and reliability of the code</li>
+	  <li>Hard to tell if code that's difficult to understand is doing what it's supposed to</li>
+	  <li>Hard for other scientists to re-use it...</li>
+	  <li>...including your future self</li>
 	</ul>
       </section>
 
       <section class="slide">
-	<h2>Scientific Software vs. "Other Software"</h2>
+	<h2>Rule 1a</h2>
+	<p class="rule">A program should not require its readers to hold more than a handful of facts in memory at once.</p>
 	<ul>
-	  <li>Most discussion of software development concerned with general-purpose software
+	  <li>Short-term memory can hold 7&plusmn;2 items</li>
+	  <li>So break programs into short, readable functions, each taking only a few parameters</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 1b</h2>
+	<p class="rule">Make names consistent, distinctive, and meaningful.</p>
+	<ul>
+	  <li><code>p</code> doesn't help the reader's short term memory as much as <code>pressure</code></li>
+	  <li>Don't use <code>temp</code> for both "temporary" and "temperature"</li>
+	  <li><code>i</code>, <code>j</code> are OK for indices in small scopes</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 1c</h2>
+	<p class="rule">Make code style and formatting consistent.</p>
+	<ul>
+	  <li><em>Which</em> rules don't matter &mdash; <em>having</em> rules does</li>
+	  <li>Brain assumes all differences are significant</li>
+	  <li>Every inconsistency slows comprehension</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 2</h2>
+	<h3 class="rule">Let the Computer Do the Work</h3>
+	<ul>
+	  <li>Computers exist to repeat things quickly</li>
+	  <li>99% accuracy &rArr; 63% of at least one error per hundred repetitions</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 2a</h2>
+	<p class="rule">Make the computer repeat tasks.</p>
+	<ul>
+	  <li>Write little programs for everything</li>
+	  <li>Even if they're called scripts, macros, or aliases</li>
+	  <li>Easier to do this with text-based programming systems than with GUIs</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 2b</h2>
+	<p class="rule">Save recent commands in a file for re-use.</p>
+	<ul>
+	  <li>Most text-based interfaces do this automatically
 	    <ul>
-	      <li>Financial applications, games, embedded devices</li>
+	      <li>Repeat recent operations using <code>history</code></li>
+	      <li>"Reproducibility in the small"</li>
 	    </ul>
 	  </li>
-	  <li>What makes scientific software special?</li>
+	  <li>Saving history supports "reproducibility in the large"
+	    <ul>
+	      <li>An accurate record of how a result was produced</li>
+	      <li><em>If</em> everything can be captured</li>
+	    </ul>
+	  </li>
 	</ul>
       </section>
 
       <section class="slide">
-	<h2>Scientific Software vs. "Other Software"</h2>
+	<h2>Rule 2c</h2>
+	<p class="rule">Use a build tool to automate workflows.</p>
+	<ul>
+	  <li>Originally developed for compiling programs</li>
+	  <li>Can be used whenever some files depend on others</li>
+	  <li>Makes workflow explicit</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 3</h2>
+	<h3 class="rule">Make Incremental Changes</h3>
+	<ul>
+	  <li>Most scientists don't have "requirements"
+	    <ul>
+	      <li>They are their own users</li>
+	      <li>Code evolves in tandem with research</li>
+	    </ul>
+	  </li>
+	  <li>Closest fit from industry is <em>agile development</em></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 3a</h2>
+	<p class="rule">Work in small steps with frequent feedback<br/>and course correction.</p>
+	<ul>
+	  <li>People can concentrate for 45-90 minutes without a break</li>
+	  <li>So size each burst of work to fit that</li>
+	  <li>Longer cycle should be a week or two</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 3b</h2>
+	<p class="rule">Use a version control system.</p>
+	<ul>
+	  <li>Tracks changes</li>
+	  <li>Allows them to be undone</li>
+	  <li>Supports independent parallel development</li>
+	  <li>Essential for collaboration <a href="#collaborate">collaboration</a></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 3c</h2>
+	<p class="rule">Put everything that has been created manually<br/>in version control.</p>
+	<ul>
+	  <li>Not just software: papers, raw images, ...
+	    <ul>
+	      <li>Not gigabytes...</li>
+	      <li>...but metadata <em>about</em> those gigabytes</li>
+	    </ul>
+	  </li>
+	  <li>Leave out things generated by the computer
+	    <ul>
+	      <li>Use build tools to reproduce those instead</li>
+	      <li>Unless they take a very long time to create</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 4</h2>
+	<h3 class="rule">Don't Repeat Yourself (or Others)</h3>
+	<ul>
+	  <li>Anything repeated in two or more places will eventually be wrong in at least one</li>
+	  <li>If it's faster to re-create than to discover or understand, <em>fix it</em></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 4a</h2>
+	<p class="rule">Every piece of data must have<br/>a single authoritative representation in the system.</p>
+	<ul>
+	  <li>Define constants exactly once</li>
+	  <li>Ditto file formats, geographical locations, ...</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 4b</h2>
+	<p class="rule">Modularize code rather than copying and pasting.</p>
+	<ul>
+	  <li>Reducing code cloning reduces error rates</li>
+	  <li>Cuts the amount of testing needed</li>
+	  <li>And increases comprehension</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 4c</h2>
+	<p class="rule">Re-use code instead of rewriting it.</p>
+	<ul>
+	  <li>It takes experts years to build high-quality numerical or statistical software</li>
+	  <li>Your time is better spent doing science on top of that</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 5</h2>
+	<h3 class="rule">Plan for Mistakes</h3>
+	<ul>
+	  <li>No single practice catches everything</li>
+	  <li>So practice <em>defense in depth</em></li>
+	</ul>
+	<p align="center"><em>Note: improving quality increases productivity</em></p>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 5a</h2>
+	<p class="rule">Add assertions to programs to check their operation.</p>
+	<ul>
+	  <li>"This must be true here or there is an error"</li>
+	  <li>Like diagnostic circuits in hardware</li>
+	  <li>No point proceeding if the program is broken...</li>
+	  <li>...and they serve as <em>executable documentation</em></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 5b</h2>
+	<p class="rule">Use an off-the-shelf unit testing library.</p>
+	<ul>
+	  <li>Manages setup, execution, and reporting</li>
+	  <li>Re-run unit tests after every change to the code to check for <em>regression</em></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Testing is Hard</h2>
+	<ul>
+	  <li>"If I knew what the right answer was, I'd have published by now."</li>
+	  <li>Compare to experimental data</li>
+	  <li>Or to analytic solutions of simple problems</li>
+	  <li>Or to old (trusted) programs</li>
+	  <li>If nothing else, forces scientists to document what "errors" are acceptable</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 5c</h2>
+	<p class="rule">Turn bugs into test cases.</p>
+	<ul>
+	  <li>Write a test that fails when the bug is present</li>
+	  <li>Then work on the code until that test passes...</li>
+	  <li>...and no others are failing</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Test-Driven Development</h2>
+	<ul>
+	  <li>Why wait? Always write the tests, then the code</li>
+	  <li>Improves focus</li>
+	  <li>Encourages writing testable code</li>
+	  <li>And ensures tests actually get written...</li>
+	  <li>"Red, green, refactor"</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 5d</h2>
+	<p class="rule">Use a symbolic debugger.</p>
+	<ul>
+	  <li>Explore the program as it runs</li>
+	  <li>Better than print statements
+	    <ul>
+	      <li>You don't have to re-run...</li>
+	      <li>...or guess in advance what you'll need to know</li>
+	    </ul>
+	  </li>
+	  <li>Use <em>breakpoints</em> to stop program at particular points or when particular things are true</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 6</h2>
+	<h3 class="rule">Optimize Software<br/>Only After It Works Correctly</h3>
+	<ul>
+	  <li>Even experts find it hard to predict performance bottlenecks</li>
+	  <li>Small changes to code often have dramatic impact on performance</li>
+	  <li>So get it right, <em>then</em> make it fast</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 6a</h2>
+	<p class="rule">Use a profiler to identify bottlenecks.</p>
+	<ul>
+	  <li>Reports how much time is spent on each line of code</li>
+	  <li>Re-check on new computers or when switching libraries</li>
+	  <li>Summarize across unit tests</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 6b</h2>
+	<p class="rule">Write code in the highest-level language possible.</p>
+	<ul>
+	  <li>People write the same number of lines of code per hour regardless of language</li>
+	  <li>So use the most expressive language available to get the "right" version...</li>
+	  <li>...then rewrite core pieces (possibly in a lower-level language) to get the "fast" version</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>Rule 7</h2>
+	<h3 class="rule">Document Design and Purpose,<br/>not Mechanics</h3>
+	<ul>
+	  <li>Goal is to make the next person's life easier</li>
+	  <li>Focus on things the code <em>doesn't</em> say
+	    <ul>
+	      <li>Or doesn't say clearly</li>
+	      <li>E.g., file formats</li>
+	    </ul>
+	  </li>
+	  <li>An example is worth a thousand words...</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 7a</h2>
+	<p class="rule">Document interfaces and reasons,<br/>not implementations.</p>
+	<ul>
+	  <li>Interfaces and reasons change more slowly than implementation details, so documenting them is better economics</li>
+	  <li>And most people care about using code more than understanding it</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 7b</h2>
+	<p class="rule">Refactor code in preference to<br/>explaining how it works.</p>
+	<ul>
+	  <li>Good code can be understood when read aloud</li>
+	  <li>Good programmers build libraries so that solving their problem is straightforward</li>
+	  <li>Again, "red, green, refactor"</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 7c</h2>
+	<p class="rule">Embed the documentation for a piece of software<br/>in that software.</p>
+	<ul>
+	  <li>Specially-formatted comments or strings</li>
+	  <li>More likely to be kept up to date</li>
+	  <li>More accessible to interactive help</li>
+	  <li>Many modern tools embed code in documentation rather than vice versa</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2 id="collaborate">Rule 8</h2>
+	<h3 class="rule">Collaborate</h3>
+	<ul>
+	  <li>Computers were invented to calculate</li>
+	  <li>The web was invented to collaborate</li>
+	  <li>Science is more fun when it's shared</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 8a</h2>
+	<p class="rule">Use pre-merge code reviews.</p>
+	<ul>
+	  <li>Have someone else review changes <em>before</em> merging in version control</li>
+	  <li>Significantly reduces errors</li>
+	  <li>Good way to share knowledge</li>
+	  <li>It's what makes open source possible</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 8b</h2>
+	<p class="rule">Use pair programming<br/>when bringing someone new up to speed<br/>and when tackling particularly tricky problems.</p>
+	<ul>
+	  <li>Two people, one keyboard, one screen</li>
+	  <li>An extreme form of code review</li>
+	  <li>Can get a bit tired if done all the time...</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Rule 8c</h2>
+	<p class="rule">Use an issue tracking tool.</p>
+	<ul>
+	  <li>A shared to-do list
+	    <ul>
+	      <li>Items can be assigned to people</li>
+	      <li>Supports comments, links to code and papers, etc.</li>
+	    </ul>
+	  </li>
+	  <li>"Version control is where we've been, the issue tracker is where we're going"</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Gosh, That's a Lot</h2>
+	<p class="rule">One step at a time.</p>
 	<ol>
-	  <li>Often written by scientists/researchers for their own use.</li>
-	  <li>Not designed to satisfy detailed requirements of human users.</li>
-	  <li>Mainly intended to answer one or more fairly specific scientific, often mathematically formulated questions.</li>
-	  <li>Should support reproducibility of results.</li>
-	  <li>Validation important.</li>
+	  <li>Use text-based interfaces</li>
+	  <li>Turn history into scripts</li>
+	  <li>Put everything in version control</li>
+	  <li>Use test-driven development</li>
 	</ol>
       </section>
 
-      <section class="slide">
-	<h2>Main Ideas</h2>
-	<ul>
-	  <li>Write Programs for People</li>
-	  <li>Let the Computer Do the Work</li>
-	  <li>Make Incremental Changes</li>
-	  <li>Don’t Repeat Yourself</li>
-	  <li>Plan for Mistakes</li>
-	  <li>Optimize Software Only after It Works</li>
-	  <li>Document Design and Purpose</li>
-	  <li>Collaborate</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Write Programs for People</h2>
-	<blockquote>
-	  Any fool can write code that a computer can understand.
-	  Good programmers write code that humans can understand.
-	  <br/>
-	  &ndash; Martin Fowler, 1999
-	</blockquote>
-	<ul>
-	  <li>Need to write software that executes correctly <em>and</em> is understandable.</li>
-	  <li>If not, it becomes difficult for others (and \alert{you}) to understand what the program does.</li>
-	  <li>Also makes it difficult to check whether the program does it correctly.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Humans Are Simple-Minded...</h2>
-	<blockquote>
-	  A program should not require its readers to hold more than a handful of facts in memory at once.
-	</blockquote>
-	<ul>
-	  <li>We can only hold about a handful of items in "working memory" at a time.</li>
-	  <li>"Items" can be a single fact or some chunk of facts.</li>
-	  <li>So divide programs into functions, each of which carries out a single task.</li>
-	  <li>Each function's task should be easily understandable.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Naming Conventions</h2>
-	<blockquote>
-	  Make names consistent, distinctive, and meaningful.
-	</blockquote>
-	<ul>
-	  <li>It makes the code easier to understand when the reader does not have to switch between different naming conventions through the document.</li>
-	  <li>Use names that describe what the given variable or function is.</li>
-	  <li>For example:
-	    <ul>
-	      <li>Not just \texttt{a} or \texttt{foo}.</li>
-	      <li>Not too similar -- \texttt{result1} and \texttt{result2}.</li>
-	    </ul>
-	  </li>
-	  <li>On the other hand, if a function's documentation clearly states that its purpose is to evaluate the polynomial $f(x) = ax^2 + bx + c$, maybe \texttt{a}, \texttt{b}, and \texttt{c} are not such a bad idea\ldots</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Style and Formatting</h2>
-	<blockquote>
-	  Make code style and formatting consistent.
-	</blockquote>
-	<ul>
-	  <li>Do not mix different case styles.</li>
-	  <li>For example:
-	    <ul>
-	      <li>Do not use both \texttt{CamelCase} and \texttt{pothole\textunderscore{}case}.</li>
-	    </ul>
-	  </li>
-	  <li>In Python, for example, do not mix tabs and spaces.</li>
-	  <li>Keep indentation levels consistent.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Let the Computer Do the Work</h2>
-	<ul>
-	  <li>If we repeat things over and over again, such as processing large numbers of files the same way or regenerating figures for new data, we waste time and are bound to make mistakes at some point.</li>
-	  <li>So make the computer repeat tasks.</li>
-	  <li>And save recent commands in a file for re-use.</li>
-	  <li>Example:
-	    <ul>
-	      <li>In command-line interfaces, use command history to recall recent commands and only change the necessary parameters.</li>
-	    </ul>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Workflows</h2>
-	<blockquote>
-	  Use a build tool to automate workflows.
-	</blockquote>
-	<ul>
-	  <li>Particularly for compiled languages, it is common to use a \emph{build tool} to compile and link program files, i.e. keeping track of compiling and linking only the necessary files.</li>
-	  <li>Examples: \emph{Make} -- a classic for C/C++ etc., \emph{ant} -- particularly used for Java.</li>
-	  <li>These tools can also be used for more general tasks than compiling and linking.</li>
-	  <li>We can use them for our "computing" tasks, such as:
-	    <blockquote>
-	      To produce figure 4, we need to make sure that \texttt{program1}
-	      and \texttt{program2} have been run and that \texttt{analysis} has
-	      been run afterwards to combine their data before we finally run
-	      \texttt{generate\textunderscore{}figure}.
-	    </blockquote>
-	  </li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Make Incremental Changes</h2>
-	<blockquote>
-	  Work in small steps with frequent feedback and course correction.
-	</blockquote>
-	<ul>
-	  <li>We may not know from the beginning, exactly all of the steps that the program must go through (particularly true for scientific software development).</li>
-	  <li>Better to work in small steps than trying to plan everything months or years ahead.</li>
-	  <li>Work in steps of about an hour grouped into iterations of about a weeks duration.</li>
-	  <li>Accommodates cognitive constraints of (human) programmers.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Versioning</h2>
-	<blockquote>
-	  Use a version control system.
-	</blockquote>
-	<ul>
-	  <li>A version control system (VCS) is a program that stores and keeps track of different \emph{versions} of files in a \emph{repository}.</li>
-	  <li>It is typically used for software development, i.e. storing versions of source code files etc., but it can be applied much more generally to all types of files.</li>
-	  <li>Working with a VCS is often based on \emph{differences} between versions of the individual files.</li>
-	  <li>Ideally for text-based files. Not so well-suited for binary files.</li>
-	  <li>Can be used for example for (LaTeX) report documents as well as your source code.</li>
-	  <li>VCS examples: Subversion, git, Mercurial.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Versioning (cont.)</h2>
-	<blockquote>
-	  Put everything that has been created manually in version control.
-	</blockquote>
-	<ul>
-	  <li>Program source code, report documents, working notes...</li>
-	  <li>Files that can be derived automatically from the above are not necessary to track in the VCS (maybe in some cases for convenience).</li>
-	  <li>Especially in the case of large binary files, it might be a good idea to store them externally but store meta-data about them in the VCS.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Uniqueness</h2>
-	<blockquote>
-	  Every piece of data must have a single authoritative representation in the system.
-	</blockquote>
-	<ul>
-	  <li>Anything that is duplicated in two or more places is difficult to keep track of.</li>
-	  <li>Sooner or later, we are going to forget to update one of these representations of the data or code, and our data or program becomes inconsistent.</li>
-	  <li>For example, physical constants used in a program should be define in only one place so it is unambiguous which definition is being used by the program.</li>
-	  <li>Raw data files (e.g. images, audio, measurements of some kind) should exist in only one copy.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Modularity</h2>
-	<blockquote>
-	  Modularize code rather than copying and pasting.
-	</blockquote>
-	<ul>
-	  <li>If a certain functionality is needed several places in a program, modularize it by defining it as a function which is called each of these places.</li>
-	  <li>Cloning code and writing this functionality into the source code at different places in the program introduces several places we need to maintain when for example correcting bugs etc.</li>
-	  <li>Also helps people remember the functionality as one single "chunk", making it easier to keep track of.</li>
-	  <li>Modularized code is easier to re-use elsewhere.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Re-Use</h2>
-	<blockquote>
-	  Re-use code instead of rewriting it.
-	</blockquote>
-	<ul>
-	  <li>If you need particular functionality in your program that others have programmed before you, use available code instead of programming it yourself.</li>
-	  <li>Huge amounts of software that might solve just your problem are available as free, open-source software online.</li>
-	  <li>You probably cannot program it more efficiently yourself anyway.</li>
-	  <li>For example, we utilise lots of functionality from NumPy and Matplotlib instead of implementing it ourselves.
-	    <ul>
-	      <li>That being said, for educational purposes it can be a good idea to program certain project-relevant functionality yourselves as it helps you understand it better.</li>
-	    </ul>
-	  </li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Plan for Mistakes</h2>
-	<blockquote>
-	  Add assertions to programs to check their operation.
-	</blockquote>
-	<ul>
-	  <li>An assertion is a conditional statement of something we know must be true.</li>
-	  <li>We add the statement as a "sanity check".</li>
-	  <li>If the statement fails, we know something is wrong.</li>
-	  <li>Serve to catch errors as soon as possible -- simplifies debugging.</li>
-	  <li>Also serve as documentation -- help explain how the program works.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Testing</h2>
-	<blockquote>
-	  Use an off-the-shelf unit testing library.
-	</blockquote>
-	<ul>
-	  <li>Testing is important to make sure that the program works correctly.</li>
-	  <li>Unit tests test whether a single part of the software, for example a function, works as intended.</li>
-	  <li>Integration tests test whether different parts of the code work correctly when used together.</li>
-	  <li>For example:
-	    <ul>
-	      <li>If we have implemented a function to numerically evaluate some function, maybe we can analytically determine the correct value in some selected points.</li>
-	      <li>A test can then be to run the function on these points and compare the returned values to the analytically calculated values.</li>
-	    </ul>
-	  </li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Testing and Debugging</h2>
-	<blockquote>
-	  Turn bugs into test cases.
-	</blockquote>
-	<ul>
-	  <li>When we find bugs in our programs (and we will\ldots), we should turn those bugs into tests with code that trigger this bug.</li>
-	  <li>This prevents this (kind of) bug from re-appearing at a later point in time and/or at another place in the program.</li>
-	  <li>Proper testing improves confidence in our program.</li>
-	  <li>Also encourages programmers to write code that is easier to test. This way it usually becomes easier to understand as well.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Debugging</h2>
-	<blockquote>
-	  Use a symbolic debugger.
-	</blockquote>
-	<ul>
-	  <li>You may be able to debug your program using for example \texttt{print} statements here and there to watch the values of certain variables.</li>
-	  <li>This is time-consuming and it can be very tricky to track down the source of a problem.</li>
-	  <li>Using a so-called symbolic debugger lets you inspect your program at run-time -- much more efficient.</li>
-	  <li>You can set break-points where the debugger stops the program and you can inspect the values of different variables at that point in the program.</li>
-	  <li>You can also step through the code line by line and observe what happens in each line.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Make It Work, <em>Then</em> Make It Fast</h2>
-	<blockquote>
-	  Premature optimization is the root of all evil.
-	  <br/>
-	  &ndash; Donald Knuth, 1974
-	</blockquote>
-      </section>
-
-      <section class="slide">
-	<h2>Profiling</h2>
-	<blockquote>
-	  Use a profiler to identify bottlenecks.
-	</blockquote>
-	<ul>
-	  <li>In many cases, we cannot predict correctly which parts of our program take up the largest amount of time.</li>
-	  <li>A profiler tool analyses our program at run-time and records how much time the program spends in each line or function of the program.</li>
-	  <li>This allows us to identify which parts of the program are particularly heavy (consume the largest fractions of the run time).</li>
-	  <li>Having identified these "bottlenecks", we can then efficiently concentrate on optimizing the one or few places where it really makes sense.</li>
-	  <li>It usually only makes sense to optimize a few selected parts of the code.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Programming Language</h2>
-	<blockquote>
-	  Write code in the highest-level language possible.
-	</blockquote>
-	<ul>
-	  <li>Programmers tend to produce the same amount of lines of code per time regardless of the programming language.</li>
-	  <li>Using a higher-level programming language, you can usually do more with less code and so, programming is more efficient here.</li>
-	  <li>Then we can, if necessary, optimise specific parts of the code in a lower-level language later on.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<blockquote>
-	  Document interfaces and reasons, not implementations.
-	</blockquote>
-	<ul>
-	  <li>It is important to keep code well-documented to make it easier for the reader to understand and for others to maintain later on.</li>
-	  <li>Documentation on design decisions, i.e. why things were done the way they were done are useful.</li>
-	  <li>Documentation of interfaces is useful. For example documentation at the beginning of a function that explains what the function does, which arguments it takes, and what it returns.</li>
-	  <li>Documentation of the detailed mechanics in the code is often not very useful:</li>
-	</ul>
-	<pre>i = i + 1   # Increment variable 'i' by one</pre>
-      </section>
-
-      <section class="slide">
-	<h2>Refactoring</h2>
-	<blockquote>
-	  Refactor code in preference to explaining how it works.
-	</blockquote>
-	<ul>
-	  <li>In some cases, particular parts of code may need unusually long and complicated descriptions.</li>
-	  <li>In such cases it is often better to re-write that part of the code.</li>
-	  <li>Known as \emph{refactoring} the code: changing the code such that it still produces the same results.</li>
-	  <li>Refactor difficult-to-document parts of the code to make them easier to understand.</li>
-	  <li>Not always possible -- some things just are complicated with no simpler way to do them.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Embed Documentation</h2>
-	<blockquote>
-	  Embed the documentation for a piece of software in that software.
-	</blockquote>
-	<ul>
-	  <li>The documentation of a program should be embedded within the code itself rather than in an external document.</li>
-	  <li>Makes it easier to read the documentation while inspecting the code.</li>
-	  <li>Increases the probability that the documentation gets updated accordingly when the code is changed.</li>
-	  <li>If we want external, nicely-formatted documentation as well, this can be generated from the embedded documentation. For example using Sphinx or Dexy.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Code Review</h2>
-	<blockquote>
-	  Use pre-merge code reviews.
-	</blockquote>
-	<ul>
-	  <li>Code review is having fellow programmers read through your code.</li>
-	  <li>Code reviews are a good way to assure the quality of the code you produce -- catch bugs and improve readability.</li>
-	  <li>Also helps spread knowledge of how the code works to other team members.</li>
-	  <li>Pre-merge code review, as suggested here, means that the code should be reviewed before being checked into the VCS repository.</li>
-	  <li>The argument for this here is that if reviews do not have to be done before being checked in, they will probably not get reviewed at all.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Pair Programming</h2>
-	<blockquote>
-	  Use pair programming when bringing someone new up to speed
-	  and when tackling particularly tricky problems.
-	</blockquote>
-	<ul>
-	  <li>Pair programming is a fairly extreme form of code review.</li>
-	  <li>One person ("driver") writes the actual code while the other ("navigator") is watching, providing comments on the way the code is implemented.</li>
-	  <li>The navigator can maintain a better overview while the driver is "buried" in the details.</li>
-	  <li>This can be quite intrusive (similar to having a passenger constantly commenting on how you drive your car).</li>
-	  <li>Therefore the recommendation here is to use it when introducing someone new to the code or when dealing with particularly difficult problems.</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Tracking Work</h2>
-	<blockquote>
-	  Use an issue tracking tool.
-	</blockquote>
-	<ul>
-	  <li>This is a tool to keep track of bugs in the program, what needs to be programmed, what needs to be reviewed etc.</li>
-	  <li>A sort of to-do list kept together with the code.</li>
-	  <li>Helps provide all team members with a joint overview of the project.</li>
-	  <li>Usually integrated with the version control.</li>
-	  <li>Comes integrated with several free online VCS repository platforms such as Bitbucket and GitHub or in the form of locally installed tools such as Trac.</li>
-	</ul>
-      </section>
-
       <section class="slide" data-container-class="no-status">
-        <h2 style="font-size: 160%;">Citation</h2>
-	<p>Wilson et al: "Best Practices for Scientific Computing".  PLOS Biology, Jan. 2014, <a href="http://dx.doi.org/10.1371/journal.pbio.1001745">http://dx.doi.org/10.1371/journal.pbio.1001745</a>.</p>
+        <h2 style="font-size: 160%;">Thank You</h2>
+	<p class="small">
+	  Greg Wilson,
+	  D. A. Aruliah,
+	  C. Titus Brown,
+	  Neil P. Chue Hong,
+	  Matt Davis,
+	  Richard T. Guy,
+	  Steven H.D. Haddock,
+	  Kathryn D. Huff,
+	  Ian M. Mitchell,
+	  Mark D. Plumbley,
+	  Ben Waugh,
+	  Ethan P. White,
+	  and
+	  Paul Wilson:
+	</p>
+	<p align="center">
+	  "Best Practices for Scientific Computing"
+	  <br/>
+	  PLOS Biology, Jan. 2014,
+	  <br/>
+	  <a href="http://dx.doi.org/10.1371/journal.pbio.1001745">http://dx.doi.org/10.1371/journal.pbio.1001745</a>.
+	</p>
 	<div align="center">
-	  <p><em>Thank you for listening</em></p>
           <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
 	</div>
       </section>
