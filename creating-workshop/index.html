@@ -38,14 +38,59 @@
       <section class="slide">
 	<h2>Why</h2>
 	<ol>
-          <li>Lets instructors make changes as needed</li>
-          <li>Ensures uniform appearance and metadata</li>
-          <li>Ensures at least one instructor can GitHub</li>
+          <li>Let instructors make changes as needed</li>
+          <li>Ensure uniform appearance and metadata</li>
+          <li>Put data about workshop somewhere findable</li>
+          <li>Ensure at least one instructor can use GitHub</li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>How</h2>
+        <h2>How It Works</h2>
+	<ol>
+	  <li>
+	    If a repository at <code>https://github.com/user/repo</code>
+	    has a branch called <code>gh-pages</code>,
+	    then GitHub publishes that branch's contents
+	    as a website at <code>http://user.github.io/repo/</code>.
+	  </li>
+	  <li>
+	    Plain HTML pages are published as-is.
+	  </li>
+	  <li>
+	    HTML or Markdown pages with special headers are compiled.
+	  </li>
+	</ol>
+      </section>
+
+      <section class="slide">
+	<h2>How It Works (cont.)</h2>
+        <ul>
+          <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to compile websites</li>
+          <li>Combines <code>key:value</code> data from page header...</li>
+	  <li>...and from a <code>_config.yml</code> configuration file...</li>
+          <li>...with page templates stored in <code>_layouts</code>...</li>
+          <li>...and snippets of HTML in <code>_includes</code>...</li>
+          <li>...to create finished HTML pages</li>
+        </ul>
+      </section>
+
+      <section class="slide noh2">
+	<br/>
+	<img src="compile.svg" alt="Compiling" />
+      </section>
+
+      <section class="slide">
+        <h2>But There's a Catch</h2>
+        <ul>
+          <li>A user can only fork a repo once on GitHub</li>
+          <li>But instructors teach many workshops</li>
+	  <li>So we have to do things in a roundabout way</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>Steps</h2>
         <ol>
           <li>Create a brand new repository on GitHub</li>
           <li>Clone to desktop</li>
@@ -55,30 +100,9 @@
         </ol>
       </section>
 
-      <section class="slide">
-        <h2>How</h2>
+      <section class="slide noh2">
+	<br/>
         <img src="steps.svg" alt="Steps" />
-      </section>
-
-      <section class="slide">
-        <h2>Why?</h2>
-        <ul>
-          <li>A user can only fork a repo once on GitHub</li>
-          <li>But instructors teach many workshops</li>
-	  <li>So we have to manage remotes on the desktop</li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>How It Works</h2>
-        <ul>
-          <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to create websites</li>
-          <li>Combines <code>key:value</code> data from page header...</li>
-	  <li>...and <code>_config.yml</code>...</li>
-          <li>...with page templates stored in <code>_layouts</code>...</li>
-          <li>...and snippets of HTML in <code>_includes</code>...</li>
-          <li>...to create finished HTML pages</li>
-        </ul>
       </section>
 
       <section class="slide">
@@ -163,7 +187,7 @@ lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
       </section>
 
       <section class="slide">
-        <h2>The Simple Way</h2>
+        <h2>Scripted</h2>
         <ol>
           <li value="1">Download the setup script</li>
 	</ol>
@@ -182,6 +206,27 @@ lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
           <li>Delete or uncomment setup instructions</li>
           <li>See <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">CUSTOMIZATION.md</a> for full instructions</li>
         </ul>
+      </section>
+
+      <section class="slide noh2">
+	<br/>
+<pre>
+layout: workshop
+root: .
+venue: Some University
+address: 456 Main St #123 Somewhere, SW
+country: Some-Country
+latlng: 12.34, -56.78
+humandate: Jan 02-03, 2015
+humantime: 9:00 am - 4:30 pm
+startdate: 2015-01-02
+enddate: 2015-01-03
+instructor: ["Some One", "Some One Else"]
+helper: ["Another Person"]
+contact: someone@somewhere.org
+etherpad: # FIXME
+eventbrite: # FIXME
+</pre>
       </section>
 
       <section class="slide">
