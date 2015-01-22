@@ -13,19 +13,18 @@ Tutorials
 *  [Creating a Lesson](http://swcarpentry.github.io/slideshows/creating-lesson/index.html)
 
 
-Visualizing presentations locally with chrome (or chromium)
------------------------------------------------------------
+Visualizing Presentations Locally
+---------------------------------
 
-If you get a popup message mentionning that the timing file could not be loaded, please read on.
-When loading a presentation from the local filesystem (address starting with file://), chrome will refuses to dynamically load files such as the timing files.
-
+If you get a popup message mentioning that the timing file could not be loaded,
+the problem may be your browser refusing to dynamically load files
+(such as the timing file)
+from the local filesystem.
 The solution is to start a webserver and access the presentation through it:
-- go to the root of the repository
-- run `python -m SimpleHTTPServer 7777` (or with Python 3: `python3 -m http.server 7777`)
-- view the presentations at `http://localhost:7777`
 
+1.  Go to the root of the repository.
+2.  Run `python -m SimpleHTTPServer 7777` (or with Python 3: `python3 -m http.server 7777`).
+3.  View the presentations at `http://localhost:7777`.
 
-
-Alternatively, start chrome with `chrome --disable-web-security` .
-__Warning__: for security reasons, you should not navigate the open web with this option enabled.
-
+Alternatively, if you are using Google Chrome, start it with `chrome --disable-web-security`.
+**Warning:** for security reasons, you should not navigate the open web with this option enabled.
