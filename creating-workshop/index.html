@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Creating a Website for a Workshop</title>
+    <title>Creating a Workshop Website</title>
     <meta name="author" content="Greg Wilson" />
     <!-- meta name="audio" content="voiceover.ogg" -->
     <!-- meta name="timings" content="timings.json" -->
@@ -22,7 +21,7 @@
     <div class="deck-container">
 
       <section class="slide title-slide" data-container-class="no-status">
-        <h1 class="var-title"></h1>
+        <h1>Creating a Website</br>for a Workshop</h1>
         <p>January 2015</p>
         <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
       </section>
@@ -30,13 +29,14 @@
       <section class="slide">
         <h2>What</h2>
 	<div align="center">
-          <p>Create a website for a workshop</p>
+          <p>Create a website for a Software Carpentry workshop</p>
 	  <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
+	  <p>Note: depends on Git and GitHub</p>
         </div>
       </section>
 
       <section class="slide">
-	<h2>Why</h2>
+	<h2>Why We Do It This Way</h2>
 	<ol>
           <li>Let instructors make changes as needed</li>
           <li>Ensure uniform appearance and metadata</li>
@@ -51,182 +51,115 @@
 	  <li>
 	    If a repository at <code>https://github.com/user/repo</code>
 	    has a branch called <code>gh-pages</code>,
-	    then GitHub publishes that branch's contents
-	    as a website at <code>http://user.github.io/repo/</code>.
+	    GitHub publishes it as a website at <code>http://user.github.io/repo/</code>.
 	  </li>
 	  <li>
-	    Plain HTML pages are published as-is.
+	    Plain pages published as-is.
 	  </li>
 	  <li>
-	    HTML or Markdown pages with special headers are compiled.
+	    Pages with special headers are compiled.
 	  </li>
 	</ol>
       </section>
 
       <section class="slide">
-	<h2>How It Works (cont.)</h2>
+	<h2>Behind the Scenes</h2>
         <ul>
           <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to compile websites</li>
-          <li>Combines <code>key:value</code> data from page header...</li>
-	  <li>...and from a <code>_config.yml</code> configuration file...</li>
+          <li>Combines values from page's header...</li>
+	  <li>...and from a file called <code>_config.yml</code>...</li>
           <li>...with page templates stored in <code>_layouts</code>...</li>
           <li>...and snippets of HTML in <code>_includes</code>...</li>
           <li>...to create finished HTML pages</li>
         </ul>
       </section>
 
-      <section class="slide noh2">
-	<br/>
-	<img src="compile.svg" alt="Compiling" />
-      </section>
-
       <section class="slide">
-        <h2>But There's a Catch</h2>
-        <ul>
-          <li>A user can only fork a repo once on GitHub</li>
-          <li>But instructors teach many workshops</li>
-	  <li>So we have to do things in a roundabout way</li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>Steps</h2>
-        <ol>
-          <li>Create a brand new repository on GitHub</li>
-          <li>Clone to desktop</li>
-          <li>Pull content from <code>workshop-template</code></li>
-          <li>Edit and check</li>
-          <li>Push to repository's <code>gh-pages</code> branch</li>
-        </ol>
-      </section>
-
-      <section class="slide noh2">
-	<br/>
-        <img src="steps.svg" alt="Steps" />
-      </section>
-
-      <section class="slide">
-        <h2>1. Create Repository</h2>
-        <ul>
-          <li>From scratch: <em>not</em> a fork of <code>workshop-template</code></li>
-          <li>Name it YYYY-MM-DD-site</li>
-          <li>Can be owned by anyone</li>
-	  <li>Make it public</li>
-	  <li>Give it a <code>README.md</code></li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>2. Clone to Desktop</h2>
-<pre>$ git clone git@github.com:user/YYYY-MM-DD-site.git</pre>
-        <ul>
-	  <li>Make sure you're <em>not</em> already in a Git repository</li>
+	<h2>Our Conventions</h2>
+	<ul>
+	  <li>Repositories are named YYYY-MM-DD-site
+	    <ul>
+	      <li>For example:
+<pre>https://github.com/gvwilson/2015-07-01-mistaktonic</pre>
+	      </li>
+	      <li>Website published at:
+<pre>http://gvwilson.github.io/2015-07-01-miskatonic</pre>
+	      </li>
+	    </ul>
+	  </li>
+	  <li>We use data from the header of <code>index.html</code> to build the main website</li>
 	</ul>
       </section>
 
       <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="1">Make connection to template directory</li>
-	</ol>
-<pre>$ git remote add template https://github.com/swcarpentry/workshop-template.git</pre>
+        <h2>There's a Catch</h2>
+        <ul>
+          <li>A user can only have one fork of a repo</li>
+          <li>But instructors teach many workshops</li>
+	  <li>So we cannot simply fork <code>workshop-template</code></li>
+	  <li>Must <em>import</em> the template into a new repo</li>
+        </ul>
       </section>
 
       <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="2">Make a <code>gh-pages</code> branch</li>
+	<h2>Steps</h2>
+	<ol>
+	  <li>Import</li>
+	  <li>Customize</li>
+	  <li>Check</li>
+	  <li>Publish</li>
 	</ol>
-<pre>git checkout -b gh-pages</pre>
       </section>
 
       <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="3">Pull down the template</li>
-	</ol>
-<pre>$ git pull template gh-pages</pre>
-      </section>
-
-      <section class="slide">
-        <h2>4. Edit and Check</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="1">Change the URLs in <code>_config.yml</code></li>
-	</ol>
+	<h2>Step 1: Import</h2>
+	<ol>
+	  <li>Go to <a href="http://import.github.com">http://import.github.com</a></li>
+	  <li>Enter this URL:
 <pre>
-lesson_repo     : "http://github.com/user/YYYY-MM-DD-site"
-lesson_site     : "http://user.github.io/YYYY-MM-DD-site"
+https://github.com/swcarpentry/workshop-template
 </pre>
-      </section>
-
-      <section class="slide">
-        <h2>4. Edit and Check</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="2">Modify <code>index.html</code> (discussed below)</li>
+	  </li>
+	  <li>Check it (GitHub won't import until you do)</li>
+	  <li>Select the owner and name</li>
+	  <li>Make sure it's public</li>
 	</ol>
       </section>
 
       <section class="slide">
-        <h2>4. Edit and Check</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="3">Run <code>tools/check.py</code> to validate...</li>
+	<h2>Step 1: Import</h2>
+	<img src="using-github-import.png" alt="Using GitHub Import" style="height:400px;" />
+      </section>
+
+      <section class="slide">
+	<h2>Step 2: Customize</h2>
+	<ul>
+	  <li>Go to your newly-created repository</li>
+	  <li>Edit the header of <code>index.html</code></li>
+	  <li>Edit <code>_config.yml</code> to set <code>lesson_repo</code> and <code>lesson_site</code></li>
+	  <li><em>You can edit on GitHub or by cloning and editing on your desktop</em></li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Step 3: Check</h2>
+	<ul>
+          <li>Run <code>tools/check.py</code> to validate...</li>
           <li>...<code>tools/preview</code> to preview locally...</li>
           <li>...or <code>tools/clean</code> to clean up</li>
-        </ol>
+	</ul>
       </section>
 
       <section class="slide">
-        <h2>5. Publish</h2>
+        <h2>4. Publish</h2>
         <ul>
-          <li>Push to website</li>
+          <li>Push to website
+	    <ul>
+	      <li>If you didn't simply edit there</li>
+	    </ul>
+	  </li>
+          <li>Check your new website</li>
         </ul>
-<pre>$ git push origin gh-pages</pre>
-        <ul>
-          <li>Check <code>http://user.github.io/YYYY-MM-DD-site</code></li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>Scripted</h2>
-        <ol>
-          <li value="1">Download the setup script</li>
-	</ol>
-<pre>$ wget <a href="http://files.software-carpentry.org/swc-workshop-create">http://files.software-carpentry.org/swc-workshop-create</a></pre>
-	<ol>
-          <li value="2">Run it to do steps 1-3 above</li>
-	</ol>
-<pre>$ swc-workshop-create YYYY-MM-DD-site "Title" github_id</pre>
-      </section>
-
-      <section class="slide">
-        <h2>What to Edit</h2>
-        <ul>
-          <li>Change values in the header of <code>index.html</code></li>
-          <li>Make sure the syllabus and schedule are right</li>
-          <li>Delete or uncomment setup instructions</li>
-          <li>See <a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">CUSTOMIZATION.md</a> for full instructions</li>
-        </ul>
-      </section>
-
-      <section class="slide noh2">
-	<br/>
-<pre>
-layout: workshop
-root: .
-venue: Some University
-address: 456 Main St #123 Somewhere, SW
-country: Some-Country
-latlng: 12.34, -56.78
-humandate: Jan 02-03, 2015
-humantime: 9:00 am - 4:30 pm
-startdate: 2015-01-02
-enddate: 2015-01-03
-instructor: ["Some One", "Some One Else"]
-helper: ["Another Person"]
-contact: someone@somewhere.org
-etherpad: # FIXME
-eventbrite: # FIXME
-</pre>
       </section>
 
       <section class="slide">
@@ -249,10 +182,10 @@ eventbrite: # FIXME
       <section class="slide" data-container-class="no-status">
         <h2>Further Reading</h2>
         <ul>
-          <li><a href="https://github.com/swcarpentry/workshop-template">Workshop template home page</a></li>
+          <li><a href="https://github.com/swcarpentry/workshop-template">Workshop template repository</a></li>
           <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/CUSTOMIZATION.md">Customizing the website</a></li>
           <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/DESIGN.md">Design notes</a></li>
-          <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a> (additions welcome)</li>
+          <li><a href="https://github.com/swcarpentry/workshop-template/blob/gh-pages/FAQ.md">FAQ</a></li>
         </ul>
 	<div align="center">
 	  <p><em>Thank you for listening</em></p>
