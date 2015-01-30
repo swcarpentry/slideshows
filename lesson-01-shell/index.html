@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>The Unix Shell Ver 4.0</title>
+    <meta name="author" content="Greg Wilson" />
+    <meta name="narrator" content="Katy Huff" />
+    <meta name="audio" content="voiceover.ogg" />
+    <meta name="timings" content="timings.json" />
+
+    <script src="../js/deckjs-custom.js"></script>
+    <script>includedeck(["../css/software-carpentry.css"],{});</script>
+    <style type="text/css">
+      .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+      a {text-decoration: underline;} /* make links clearer */
+      pre {font-size: 75%;} /* make code blocks smaller */
+      p.lesson {text-align: center; font-size: 120%; font-style: italic;}    
+    </style>
+  </head>
+  <body>
+    <div class="deck-container">
+
+      <section class="slide title-slide" data-container-class="no-status">
+        <h2 class="var-title"></h2>
+        <h3> Introduction </h2>
+        <p> Version 4.0 </p>
+        <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
+	<aside class="notes">
+	</aside>
+      </section>
+
+      <section class="slide">
+		<table width="100%">
+		<tr>	
+		    <td><img src="machine.png" alt="Machine" height="50%"> </td>
+		    <td colspan="2" align="left" style="font-size: 70%;">
+			  <ul>
+			    <li>
+				  Run Programms
+			    </li>
+			    <li>
+				  Store Data
+			    </li>
+			    <li>
+				  Communicate with each other
+			    </li>
+		   	    <li>
+				  Interact with us
+			    </li>
+		      </ul>
+		    </td>
+		</tr>
+		</table>
+	<aside class="notes">
+	</aside>
+    </section>
+
+      <section class="slide">
+		<table width="100%">
+		<tr>	
+		    <td><img src="machine.png" alt="Machine" height="50%"> </td>
+		    <td colspan="3" align="left" style="font-size: 70%;">
+			  <ul>
+			    <li>
+				  Interact with us
+			    </li>
+				  <ul>
+				    <li>
+					  Telepathy
+				    </li>
+				    <li>
+					  Speech
+				    </li>
+				    <li>
+					  WIMP:(windows, icons, mice, pointers)
+				    </li>
+				    <li>
+					  Rewiring
+				    </li>
+				    <li>
+					  Typewriter
+				    </li>
+                  </ul>
+		      </ul>
+		    </td>
+		</tr>
+		</table>
+	<aside class="notes">
+	</aside>
+    </section>
+
+    <section class="slide">
+		<table width="100%">
+		<tr>	
+		    <td  rowspan="2"><img src="typewriter.png" alt="Typewriter" height="50%"> </td>
+		    <td colspan="2" align="left" style="font-size: 70%;">
+			  <ul>
+			    <li>
+				  <strike>Typewriter</strike>
+			    </li>
+			    <li>
+				  Line Printer + Keyboard
+			    </li>
+			    <li>
+				  Text Only
+			    </li>
+		   	    <li>
+				  Interact with us
+			    </li>
+		      </ul>
+		    </td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td><img align="left" src="rhino.png" alt="Typewriter" height="50%"></td>	
+		</tr>
+		</table>		
+		<h5> CLUI: command-line user interface </h5>
+	<aside class="notes">
+	</aside>
+    </section>
+
+    <section class="slide">
+		<table width="100%">
+		<tr>
+			<td rowspan="5" style="font-size: 70%;">
+			user logs in <br/>
+			user types command <br/>
+			computer executes command <br/>
+			  and prints output <br/>
+			user types another command <br/>
+			computer executes command <br/>
+			  and prints output <br/>
+			⋮<br/>
+			user logs off <br/>
+			</td>
+			<td colspan="2">&nbsp;</td>
+			<td colspan="2"><img align="center" src="wolfman.png" alt="Wolfman" height="50%"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td align="center">&#8597;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>shell</td>
+			<td><img align="center" src="shell.png" alt="Shell" height="50%"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td align="center">&#8597;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><img align="center" src="machine.png" alt="Machine" height="30%"></td>
+		</tr>
+		</table>		
+
+	<aside class="notes">
+	</aside>
+    </section>
+
+	  <section class="slide" style="font-size: 80%">
+
+	  <ul>
+	    <li class="slide" id="extensions-goto">
+			A shell is just a program that runs other programs
+	    </li>
+	    <li class="slide" id="extensions-goto">
+			Most popular is bash (the <u>B</u>ourne <u>a</u>gain <u>sh</u>ell)
+	    </li>
+	    <li class="slide" id="extensions-goto">
+			Using it feels a lot more like programming
+	    </li>
+	    <li class="slide" id="extensions-goto">
+			than using windows, a mouse, etc.
+	    </li>
+	    <li class="slide" id="extensions-goto">
+			Commands are terse and often cryptic
+	    </li>
+	    <li class="slide" id="extensions-goto">
+			Use it because:
+	    </li>
+		  <ul>
+		    <li class="slide" id="extensions-goto">
+			 	many tools only have command-line interfaces
+		    </li>
+		    <li class="slide" id="extensions-goto">
+	         	allows you to combine tools in powerful new ways
+		    </li>
+	      </ul>
+	  </ul>
+	<aside class="notes">
+	</aside>
+	</section>
+
+  </body>
+</html>
+
+
+
+
