@@ -10,7 +10,7 @@
     <!-- meta name="timings" content="timings.json" -->
 
     <script src="../js/deckjs-custom.js"></script>
-    <script>includedeck(["../css/software-carpentry.css"],{});</script> 
+    <script>includedeck(["../css/software-carpentry.css"],{});</script>
     <style>
       .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
       a {text-decoration: underline;} /* make links clearer */
@@ -21,45 +21,68 @@
     <div class="deck-container">
 
       <section class="slide title-slide" data-container-class="no-status">
-        <h1>Creating a Website</br>for a Workshop</h1>
+        <h1>Creating your Workshop's Website</h1>
         <p>January 2015</p>
         <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
       </section>
 
       <section class="slide">
-        <h2>What</h2>
-	<div align="center">
-          <p>Create a website for a Software Carpentry workshop</p>
-	  <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
-	  <p>Note: depends on Git and GitHub</p>
+        <h2>Communicate well.</h2>
+        <div align="center">
+          <p>Key goal for website:</p>
+          <p>Motivate and equip students to use this learning in their research projects</p>
+          <p>[TODO: Visual example of a well done website goes here]
+          <p></p>
         </div>
       </section>
 
       <section class="slide">
-	<h2>Why We Do It This Way</h2>
-	<ol>
-          <li>Let instructors make changes as needed</li>
-          <li>Ensure uniform appearance and metadata</li>
-          <li>Put data about workshop somewhere findable</li>
-          <li>Ensure at least one instructor can use GitHub</li>
+        <h2>Well, now what?</h2>
+          <div align="center">
+            <p>Create your Software Carpentry workshop website</p>
+            <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
+            <p>We guide you through the process using git and GitHub.</p>
+          </div>
+        </section>
+
+      <section class="slide">
+        <h2>Why do it this way?</h2>
+        <ol>
+          <li>Allows instructors to customize material</li>
+          <li>Ensures uniform appearance and metadata integrity</li>
+          <li>Permits data to be accessible before, during, and after workshop</li>
+          <li>Stresses git and GitHub experience is needed by at least one instructor </li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>How It Works</h2>
-	<ol>
-	  <li>
-	    If a repository at <code>https://github.com/user/repo</code>
-	    has a branch called <code>gh-pages</code>,
-	    GitHub publishes it as a website at <code>http://user.github.io/repo/</code>.
-	  </li>
-	  <li>
-	    Plain pages published as-is.
-	  </li>
-	  <li>
-	    Pages with special headers are compiled.
-	  </li>
-	</ol>
+        <h2>How?</h2>
+        <div align="center">
+          <p>Key goal for website:</p>
+          <p>Motivate and equip students to use this learning in their research projects</p>
+          <p>[TODO: Visual example of a well done website goes here]
+          <p></p>
+        </div>
+      </section>
+      <section class="slide">
+        <h2>An overview</h2>
+        <ol>
+          <li>
+            Create and serve your workshop's website using GitHub Pages.
+          </li>
+          <li>
+            Your repository: <code>https://github.com/user/repo</code>
+            Your branch: <code>gh-pages</code>
+          </li>
+          <li>
+            Your website is auto-magically served at
+            <code>http://user.github.io/repo/</code>.
+          </li>
+          <li>
+            Tech tips: Plain pages are published as-is. Pages with special headers
+            are compiled.
+          </li>
+        </ol>
       </section>
 
       <section class="slide">
