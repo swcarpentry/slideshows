@@ -10,7 +10,7 @@
     <!-- meta name="timings" content="timings.json" -->
 
     <script src="../js/deckjs-custom.js"></script>
-    <script>includedeck(["../css/software-carpentry.css"],{});</script> 
+    <script>includedeck(["../css/software-carpentry.css"],{});</script>
     <style>
       .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
       a {text-decoration: underline;} /* make links clearer */
@@ -21,53 +21,87 @@
     <div class="deck-container">
 
       <section class="slide title-slide" data-container-class="no-status">
-        <h1>Creating a Website</br>for a Workshop</h1>
+        <h1>Creating your Workshop's Website</h1>
         <p>January 2015</p>
         <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
       </section>
 
       <section class="slide">
-        <h2>What</h2>
-	<div align="center">
-          <p>Create a website for a Software Carpentry workshop</p>
-	  <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
-	  <p>Note: depends on Git and GitHub</p>
+        <h2>Communicate well.</h2>
+        <div align="center">
+          <p>A key goal for the website:</p>
+          <p>Motivate and equip students to use this learning in their research projects</p>
+          <p>[TODO: Visual example of a well done website goes here]
+          <p></p>
         </div>
       </section>
 
       <section class="slide">
-	<h2>Why We Do It This Way</h2>
-	<ol>
-          <li>Let instructors make changes as needed</li>
-          <li>Ensure uniform appearance and metadata</li>
-          <li>Put data about workshop somewhere findable</li>
-          <li>Ensure at least one instructor can use GitHub</li>
+        <h2>Well, now what?</h2>
+          <div align="center">
+            <p>Create your Software Carpentry workshop website</p>
+            <pre><a href="https://github.com/swcarpentry/workshop-template">https://github.com/swcarpentry/workshop-template</a></pre>
+            <p>We guide you through the process using git and GitHub.</p>
+          </div>
+        </section>
+
+      <section class="slide">
+        <h2>Why do it this way?</h2>
+        <ol>
+          <li>Allows instructors to customize material</li>
+          <li>Ensures uniform appearance and metadata integrity</li>
+          <li>Permits data to be accessible before, during, and after workshop</li>
+          <li>Stresses git and GitHub experience is needed by at least one instructor </li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>How It Works</h2>
-	<ol>
-	  <li>
-	    If a repository at <code>https://github.com/user/repo</code>
-	    has a branch called <code>gh-pages</code>,
-	    GitHub publishes it as a website at <code>http://user.github.io/repo/</code>.
-	  </li>
-	  <li>
-	    Plain pages published as-is.
-	  </li>
-	  <li>
-	    Pages with special headers are compiled.
-	  </li>
-	</ol>
+        <h2>How?</h2>
+        <ul>
+          <li>
+            Overview
+          </li>
+          <li>
+            Technical: Behind the Scenes, Our Conventions
+          </li>
+          <li>
+            Steps to a website: Import, Customize, Check, Publish
+          </li>
+          <li>
+            Going beyond the basics
+          </li>
+        </ul>
       </section>
 
       <section class="slide">
-	<h2>Behind the Scenes</h2>
+        <h2>Overview</h2>
+        <ul>
+          <li>
+            Create your workshop's website using GitHub Pages.
+            <ul>
+            <li>Your repository: <code>https://github.com/user/repo</code>
+            </li>
+            <li>Your branch: <code>gh-pages</code>
+            </li>
+            <li>Your website: <code>http://user.github.io/repo/</code>.
+            </li>
+            </ul>
+          </li>
+          <li>GitHub Pages auto-magically serves your website to the world
+          </li>
+          <li>
+            Tech tips: Plain pages are published as-is. Pages with
+            special headers are compiled.
+          </li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>Behind the Scenes</h2>
         <ul>
           <li>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to compile websites</li>
           <li>Combines values from page's header...</li>
-	  <li>...and from a file called <code>_config.yml</code>...</li>
+          <li>...and from a file called <code>_config.yml</code>...</li>
           <li>...with page templates stored in <code>_layouts</code>...</li>
           <li>...and snippets of HTML in <code>_includes</code>...</li>
           <li>...to create finished HTML pages</li>
@@ -75,20 +109,21 @@
       </section>
 
       <section class="slide">
-	<h2>Our Conventions</h2>
-	<ul>
-	  <li>Repositories are named YYYY-MM-DD-site
-	    <ul>
-	      <li>For example:
-<pre>https://github.com/gvwilson/2015-07-01-mistaktonic</pre>
-	      </li>
-	      <li>Website published at:
-<pre>http://gvwilson.github.io/2015-07-01-miskatonic</pre>
-	      </li>
-	    </ul>
-	  </li>
-	  <li>We use data from the header of <code>index.html</code> to build the main website</li>
-	</ul>
+        <h2>Our Conventions</h2>
+        <ul>
+          <li>Repositories are named YYYY-MM-DD-site
+            <ul>
+              <li>For example:
+                <pre>https://github.com/gvwilson/2015-07-01-mistaktonic</pre>
+              </li>
+              <li>Website published at:
+                <pre>http://gvwilson.github.io/2015-07-01-miskatonic</pre>
+              </li>
+            </ul>
+          </li>
+          <li>We use your data from the header of <code>index.html</code> to
+              build your workshop's website</li>
+        </ul>
       </section>
 
       <section class="slide">
@@ -96,19 +131,19 @@
         <ul>
           <li>A user can only have one fork of a repo</li>
           <li>But instructors teach many workshops</li>
-	  <li>So we cannot simply fork <code>workshop-template</code></li>
-	  <li>Must <em>import</em> the template into a new repo</li>
+    <li>So we cannot simply fork <code>workshop-template</code></li>
+    <li>Must <em>import</em> the template into a new repo</li>
         </ul>
       </section>
 
       <section class="slide">
-	<h2>Steps</h2>
-	<ol>
-	  <li>Import</li>
-	  <li>Customize</li>
-	  <li>Check</li>
-	  <li>Publish</li>
-	</ol>
+  <h2>Steps</h2>
+  <ol>
+    <li>Import</li>
+    <li>Customize</li>
+    <li>Check</li>
+    <li>Publish</li>
+  </ol>
       </section>
 
       <section class="slide">
