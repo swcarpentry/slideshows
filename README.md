@@ -9,7 +9,7 @@ Ideas
 
 Tutorials
 
-*  [Creating a Workshop Website](http://swcarpentry.github.io/slideshows/creating-workshop/index.html)
+*  [Creating a Workshop Website](http://swcarpentry.github.io/slideshows/creating-website/index.html)
 *  [Creating a Lesson](http://swcarpentry.github.io/slideshows/creating-lesson/index.html)
 
 
