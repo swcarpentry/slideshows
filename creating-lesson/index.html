@@ -23,7 +23,7 @@
 
       <section class="slide title-slide" data-container-class="no-status">
         <h1 class="var-title"></h1>
-        <p>January 2015</p>
+        <p>April 2015</p>
         <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
       </section>
 
@@ -32,6 +32,7 @@
 	<div align="center">
           <p>Create a new lesson for Software Carpentry</p>
 	  <pre><a href="https://github.com/swcarpentry/lesson-template">https://github.com/swcarpentry/lesson-template</a></pre>
+	  <pre><a href="https://github.com/swcarpentry/lesson-example">https://github.com/swcarpentry/lesson-example</a></pre>
         </div>
       </section>
 
@@ -47,10 +48,11 @@
       <section class="slide">
         <h2>How</h2>
         <ol>
-          <li>Create a brand new repository on GitHub</li>
-          <li>Clone to desktop</li>
-          <li>Pull content from <code>lesson-template</code></li>
-          <li>Edit and check</li>
+          <li>Use GitHub Import to create a new repository with material from <code>lesson-template</code></li>
+	  <li>Clone to desktop</li>
+          <li>Edit according to rules in <code>lesson-example</code></li>
+          <li>Check</li>
+	  <li>Generate HTML</li>
           <li>Push to repository's <code>gh-pages</code> branch</li>
         </ol>
       </section>
@@ -70,11 +72,27 @@
       </section>
 
       <section class="slide">
+        <h2>Template vs. Example</h2>
+        <ul>
+          <li><code>lesson-template</code> has CSS, tools, etc. that may be updated centrally</li>
+          <li><code>lesson-example</code> is explanations that <em>shouldn't</em> be merged into lessons over and over again</li>
+	  <li>Separate repositories seems less error-prone than two "main" branches in one repository</li>
+        </ul>
+      </section>
+
+      <section class="slide">
         <h2>How It Works</h2>
         <ul>
-	  <li>Make detects out-of-date Markdown files</li>
-          <li><a href="http://pandoc.org/">Pandoc</a> converts them to HTML</li>
-          <li>GitHub publishes HTML in the <code>gh-pages</code> branch</li>
+	  <li>
+	    Make detects out-of-date Markdown files
+	    <ul>
+	      <li>Or out-of-date R Markdown</li>
+	      <li>Other source formats can be added</li>
+	    </ul>
+	  </li>
+          <li><a href="http://pandoc.org/">Pandoc</a> converts to HTML</li>
+	  <li>Commit the HTML to the <code>gh-pages</code> branch</li>
+          <li>GitHub publishes it as a website</li>
         </ul>
       </section>
 
@@ -97,10 +115,15 @@
         <h2>1. Create Repository</h2>
         <ul>
           <li><em>Not</em> a fork of <code>lesson-template</code></li>
+	  <li>
+	    Use <a href="http://import.github.com/new?import_url=https://github.com/swcarpentry/lesson-template">GitHub Import</a>
+	    with <code><a href="https://github.com/swcarpentry/lesson-template">https://github.com/swcarpentry/lesson-template</a></code>
+	    as the source URL
+	  </li>
           <li>Name it topic-level or topic-level-something
             <ul>
-              <li><a href="https://github.com/swcarpentry/shell-novice">shell-novice</a></li>
-              <li><a href="https://github.com/swcarpentry/python-novice-inflammation">python-novice-inflammation</a></li>
+              <li>E.g., <a href="https://github.com/swcarpentry/shell-novice">shell-novice</a></li>
+              <li>Or <a href="https://github.com/swcarpentry/python-novice-inflammation">python-novice-inflammation</a></li>
             </ul>
           </li>
           <li>Can be owned by anyone</li>
@@ -109,67 +132,65 @@
 
       <section class="slide">
         <h2>2. Clone to Desktop</h2>
-<pre>$ git clone git@github.com:user/some-lesson.git</pre>
+<pre>$ git clone -b gh-pages git@github.com:user/some-lesson.git</pre>
         <ul>
 	  <li>Make sure you're <em>not</em> already in a Git repository</li>
+	  <li><code>-b gh-pages</code> to put it in the <code>gh-pages</code> branch</li>
 	</ul>
       </section>
 
       <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="1">Make connection to template directory</li>
-	</ol>
+        <h2>3. Updating</h2>
 <pre>$ git remote add template https://github.com/swcarpentry/lesson-template.git</pre>
         <ul>
 	  <li>Call it <code>template</code> rather than <code>upstream</code></li>
+	  <li>Periodically get updates to CSS, icons, etc., from this remote</li>
 	</ul>
       </section>
 
       <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="2">Make a <code>gh-pages</code> branch</li>
-	</ol>
-<pre>git checkout -b gh-pages</pre>
-      </section>
-
-      <section class="slide">
-        <h2>3. Get Template Content</h2>
-        <ol style="list-style-type: lower-alpha">
-          <li value="3">Pull down the template</li>
-	</ol>
-<pre>$ git pull template gh-pages</pre>
-      </section>
-
-      <section class="slide">
-        <h2>4. Edit...</h2>
-        <ol>
-          <li>See the <a href="https://github.com/swcarpentry/lesson-template">README</a> for general instructions</li>
-          <li>And <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
-          <li>There are <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/DESIGN.md">notes on design</a></li>
+        <h2>4. Edit and Check</h2>
+        <ul>
+          <li>See the <a href="https://github.com/swcarpentry/lesson-example">README</a> for general instructions</li>
+          <li>And <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
+          <li>There are <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/DESIGN.md">notes on design</a></li>
           <li>
-            And an <a href="https://github.com/swcarpentry/lesson-template/blob/gh-pages/FAQ.md">FAQ</a>
+            And an <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/FAQ.md">FAQ</a>
             (additions welcome)
           </li>
-        </ol>
+	  <li>Use <code>make check</code>: Validate pages</li>
+        </ul>
       </section>
 
       <section class="slide">
-        <h2>4. ...and Check</h2>
+        <h2>5. Add the HTML</h2>
         <ol>
-	  <li><code>make check</code>: Validate pages</li>
+	  <li><code>git add *.html</code></li>
+	  <li><code>git commit -m "Adding HTML"</code></li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>5. Push to Publish</h2>
+        <h2>6. Push to Publish</h2>
         <ul>
           <li>Push to website</li>
         </ul>
 <pre>$ git push origin gh-pages</pre>
         <ul>
           <li>Check <code>http://user.github.io/some-lesson/</code></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>What to Include in PRs</h2>
+        <ul>
+          <li>Only include source Markdown in PRs for review
+	    <ul>
+	      <li>Easier to read than generated HTML</li>
+	      <li>Avoids each change showing up twice</li>
+	    </ul>
+	  </li>
+	  <li>Lesson maintainers will re-generate and add HTML after PR is accepted</li>
         </ul>
       </section>
 
@@ -187,19 +208,6 @@
           <li>Validation tool
 	    <ul>
 	      <li>Please run this before pushing changes</li>
-	    </ul>
-	  </li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>A Simpler Way to Start</h2>
-        <ul>
-          <li><code>git pull template core</code> omits example files</li>
-          <li>Still pull into the lesson's <code>gh-pages</code> branch</li>
-          <li>Will pull from <code>core</code> to get updates
-	    <ul>
-	      <li>Because pulling from template's <code>gh-pages</code> would bring back example files that you probably deleted</li>
 	    </ul>
 	  </li>
         </ul>
@@ -243,7 +251,7 @@
 	  <li>Please also include the text below</li>
 	</ul>
 <pre>
-> Please see https://github.com/swcarpentry/lesson-template
+> Please see https://github.com/swcarpentry/lesson-example
 > for instructions on formatting, building, and submitting lessons,
 > or run make in this directory for a list of helpful commands.
 </pre>
@@ -313,7 +321,7 @@
 	<div align="center">
 	  <p>
 	    <em>
-	      These files are updated by pulling from the template's <code>core</code> branch
+	      These files are updated by pulling from <code>lesson-template</code>'s <code>gh-pages</code> branch
 	    </em>
 	  </p>
 	</div>
@@ -340,50 +348,10 @@
 
       <section class="slide">
         <h2>Existing Lessons</h2>
-	<div align="center">
-	<table>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/shell-novice">The Unix shell</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/shell-novice">shell-novice</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/git-novice">Git</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/git-novice">git-novice</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/hg-novice">Mercurial</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/hg-novice">hg-novice</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/sql-novice-survey">SQL</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/sql-novice-survey">sql-novice-survey</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/python-novice-inflammation">Python</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/python-novice-inflammation">python-novice-inflammation</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/r-novice-inflammation">R</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/r-novice-inflammation">r-novice-inflammation</a></td>
-	  </tr>
-	  <tr>
-	    <td><a href="http://swcarpentry.github.io/matlab-novice-inflammation">MATLAB</a></td>
-	    <td></td>
-	    <td><a href="https://github.com/swcarpentry/matlab-novice-inflammation">matlab-novice-inflammation</a></td>
-	  </tr>
-	  <tr>
-	    <td></td>
-	    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	    <td>...and more to come</td>
-	  </tr>
-	</table>
-	</div>
+	<ul>
+	  <li>See <a href="http://software-carpentry.org/lessons.html">http://software-carpentry.org/lessons.html</a></li>
+	  <li>Please let us know when you start to work on another one so we can advertise it</li>
+	</ul>
       </section>
 
       <section class="slide">
