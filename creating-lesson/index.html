@@ -37,11 +37,10 @@
       </section>
 
       <section class="slide">
-        <h2>Why</h2>
+        <h2>Why a Template?</h2>
         <ol>
-          <li>Modularize lessons like software libraries</li>
-          <li>Ensure uniform appearance and metadata</li>
           <li>Simplify contribution</li>
+          <li>Ensure uniform appearance and metadata</li>
         </ol>
       </section>
 
@@ -65,9 +64,8 @@
       <section class="slide">
         <h2>Why?</h2>
         <ul>
-          <li>A user can only fork a repo once on GitHub</li>
-          <li>But authors may work on many lessons</li>
-	  <li>So we have to manage remotes on the desktop</li>
+          <li>Authors may work on many lessons</li>
+          <li>But a user can only fork a repo once on GitHub</li>
         </ul>
       </section>
 
@@ -76,20 +74,14 @@
         <ul>
           <li><code>lesson-template</code> has CSS, tools, etc. that may be updated centrally</li>
           <li><code>lesson-example</code> is explanations that <em>shouldn't</em> be merged into lessons over and over again</li>
-	  <li>Separate repositories seems less error-prone than two "main" branches in one repository</li>
+	  <li>Separate repositories are less confusing than two "main" branches in one repository</li>
         </ul>
       </section>
 
       <section class="slide">
         <h2>How It Works</h2>
         <ul>
-	  <li>
-	    Make detects out-of-date Markdown files
-	    <ul>
-	      <li>Or out-of-date R Markdown</li>
-	      <li>Other source formats can be added</li>
-	    </ul>
-	  </li>
+	  <li>Make detects out-of-date source files</li>
           <li><a href="http://pandoc.org/">Pandoc</a> converts to HTML</li>
 	  <li>Commit the HTML to the <code>gh-pages</code> branch</li>
           <li>GitHub publishes it as a website</li>
@@ -104,8 +96,8 @@
           <li>
 	    And we have to do some conversion anyway
 	    <ul>
-	      <li>IPython Notebooks</li>
 	      <li>R Markdown</li>
+	      <li>IPython Notebooks</li>
 	    </ul>
 	  </li>
         </ul>
@@ -140,76 +132,37 @@
       </section>
 
       <section class="slide">
-        <h2>3. Updating</h2>
-<pre>$ git remote add template https://github.com/swcarpentry/lesson-template.git</pre>
+        <h2>3. Edit and Check</h2>
         <ul>
-	  <li>Call it <code>template</code> rather than <code>upstream</code></li>
-	  <li>Periodically get updates to CSS, icons, etc., from this remote</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-        <h2>4. Edit and Check</h2>
-        <ul>
-          <li>See the <a href="https://github.com/swcarpentry/lesson-example">README</a> for general instructions</li>
-          <li>And <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
-          <li>There are <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/DESIGN.md">notes on design</a></li>
           <li>
-            And an <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/FAQ.md">FAQ</a>
-            (additions welcome)
-          </li>
-	  <li>Use <code>make check</code>: Validate pages</li>
+	    See the <a href="https://github.com/swcarpentry/lesson-example">README</a> for general instructions
+	    <ul>
+              <li>And <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/LAYOUT.md">lesson layout</a> for details</li>
+              <li>There are <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/DESIGN.md">notes on design</a></li>
+              <li>And an <a href="https://github.com/swcarpentry/lesson-example/blob/gh-pages/FAQ.md">FAQ</a> (additions welcome)</li>
+	    </ul>
+	  </li>
+	  <li>Use <code>make check</code> to check conformance to template</li>
         </ul>
       </section>
 
       <section class="slide">
-        <h2>5. Add the HTML</h2>
+        <h2>4. Add the HTML</h2>
         <ol>
+	  <li><code>make preview</code> to create HTML</li>
 	  <li><code>git add *.html</code></li>
 	  <li><code>git commit -m "Adding HTML"</code></li>
         </ol>
       </section>
 
       <section class="slide">
-        <h2>6. Push to Publish</h2>
+        <h2>5. Push to Publish</h2>
         <ul>
           <li>Push to website</li>
         </ul>
 <pre>$ git push origin gh-pages</pre>
         <ul>
-          <li>Check <code>http://user.github.io/some-lesson/</code></li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>What to Include in PRs</h2>
-        <ul>
-          <li>Only include source Markdown in PRs for review
-	    <ul>
-	      <li>Easier to read than generated HTML</li>
-	      <li>Avoids each change showing up twice</li>
-	    </ul>
-	  </li>
-	  <li>Lesson maintainers will re-generate and add HTML after PR is accepted</li>
-        </ul>
-      </section>
-
-      <section class="slide">
-        <h2>What's in the Template?</h2>
-        <ul>
-          <li>Description of required files and formatting rules</li>
-          <li>Example files
-	    <ul>
-	      <li>Some you'll edit (e.g., <code>index.html</code>)</li>
-	      <li>Some you'll delete (e.g., <code>01-one.md</code>)</li>
-	      <li>Discussed in detail below</li>
-	    </ul>
-	  </li>
-          <li>Validation tool
-	    <ul>
-	      <li>Please run this before pushing changes</li>
-	    </ul>
-	  </li>
+          <li>Check results at <code>http://user.github.io/some-lesson/</code></li>
         </ul>
       </section>
 
@@ -224,6 +177,54 @@
       </section>
 
       <section class="slide">
+        <h2>What to Include in PRs</h2>
+        <ul>
+          <li>Only include source Markdown files in PRs for review
+	    <ul>
+	      <li>Easier to read than generated HTML</li>
+	      <li>Avoids each change showing up twice</li>
+	    </ul>
+	  </li>
+	  <li>Lesson maintainers will re-generate and add HTML after PR is accepted</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>What's in the Template?</h2>
+	<pre><a href="https://github.com/swcarpentry/lesson-template">https://github.com/swcarpentry/lesson-template</a></pre>
+        <ul>
+	  <li>Page layout templates</li>
+	  <li>CSS and images</li>
+          <li><em>Validation tool</em>
+	    <ul>
+	      <li>Please run this before pushing changes</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section class="slide">
+        <h2>What's in the Example?</h2>
+	<pre><a href="https://github.com/swcarpentry/lesson-example">https://github.com/swcarpentry/lesson-example</a></pre>
+        <ul>
+          <li>Example lesson files (home page, topics, etc.)</li>
+          <li>Description of required files and formatting rules</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>Updating</h2>
+	<ul>
+	  <li>We occassionally update the CSS, icons, etc.</li>
+	</ul>
+<pre>$ git remote add template https://github.com/swcarpentry/lesson-template.git
+$ git pull template gh-pages</pre>
+        <ul>
+	  <li>Call the remote <code>template</code> rather than <code>upstream</code></li>
+	</ul>
+      </section>
+
+      <section class="slide">
         <h2>Source Formats</h2>
         <ul>
           <li>IPython Notebooks are difficult to diff and merge</li>
@@ -232,81 +233,16 @@
 	<div align="center">
 	  <p>
 	    <em>
-	      You can write in anything you want
+	      You can use any source format you want
 	      <br/>
-	      as long as you translate it into Markdown
+	      as long as (a) it can be diffed and merged
+	      <br/>
+	      and (b) the Makefile translates it into Markdown
 	      <br/>
 	      that conforms to our style guide
 	    </em>
 	  </p>
 	</div>
-      </section>
-
-      <section class="slide">
-	<h2>Template Contents</h2>
-	<p><code>README.md</code></p>
-	<ul>
-	  <li>Initially a copy of the template's README</li>
-	  <li>Overwrite with a short description of the lesson</li>
-	  <li>Please also include the text below</li>
-	</ul>
-<pre>
-> Please see https://github.com/swcarpentry/lesson-example
-> for instructions on formatting, building, and submitting lessons,
-> or run make in this directory for a list of helpful commands.
-</pre>
-      </section>
-
-      <section class="slide">
-	<h2>Template Contents</h2>
-	<p><code>Makefile</code>: do common operations</p>
-	<ul>
-          <li><code>make</code>: Display available commands</li>
-          <li><code>make check</code>: Validate formatting</li>
-          <li><code>make pages</code>: Build pages</li>
-          <li><code>make settings</code>: Show variables and settings</li>
-          <li><code>make clean</code>: Clean up junk files</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Template Contents</h2>
-	<p>A handful of mandatory files</p>
-	<ul>
-	  <li><code>index.md</code>: lesson's home page</li>
-	  <li><code>discussion.md</code>: general discussion and pointers</li>
-	  <li><code>instructors.md</code>: instructor's guide</li>
-	  <li><code>motivation.md</code>: slideshow motivating lesson</li>
-	  <li><code>reference.md</code>: reference guide for learners</li>
-	</ul>
-      </section>
-
-      <section class="slide">
-	<h2>Template Contents</h2>
-	<p><code>nn-topic.md</code>: topics within lesson</p>
-	<ul>
-	  <li>E.g., <code>01-select.md</code></li>
-	  <li>Each should be 10-15 minutes long</li>
-	</ul>
-	<div align="center">
-	  <p>
-	    <em>
-	      These are for instructors and offline reference,
-	      <br/>
-	      <strong>not</strong> to be shown to learners during teaching
-	    </em>
-	  </p>
-	</div>
-      </section>
-
-      <section class="slide">
-	<h2>Template Contents</h2>
-	<p>Sub-directories for lesson files</p>
-	<ul>
-	  <li><code>code</code>: source code</li>
-	  <li><code>data</code>: data files</li>
-	  <li><code>fig</code>: figures</li>
-	</ul>
       </section>
 
       <section class="slide">
@@ -318,13 +254,6 @@
 	  <li><code>js</code>: Javascript</li>
 	  <li><code>deck.js</code>: Javascript for slideshows</li>
 	</ul>
-	<div align="center">
-	  <p>
-	    <em>
-	      These files are updated by pulling from <code>lesson-template</code>'s <code>gh-pages</code> branch
-	    </em>
-	  </p>
-	</div>
       </section>
 
       <section class="slide">
@@ -343,6 +272,57 @@
 	<ul>
 	  <li><code>check</code> validates formatting</li>
 	  <li>We will add others soon</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Template Contents</h2>
+	<p><code>Makefile</code>: do common operations</p>
+	<ul>
+          <li><code>make</code>: Display available commands</li>
+          <li><code>make check</code>: Validate formatting</li>
+          <li><code>make pages</code>: Build pages</li>
+          <li><code>make settings</code>: Show variables and settings</li>
+          <li><code>make clean</code>: Clean up junk files</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Required Files</h2>
+	<ul>
+	  <li><code>index.md</code>: lesson's home page</li>
+	  <li><code>discussion.md</code>: general discussion and pointers</li>
+	  <li><code>instructors.md</code>: instructor's guide</li>
+	  <li><code>motivation.md</code>: slideshow motivating lesson</li>
+	  <li><code>reference.md</code>: reference guide for learners</li>
+	</ul>
+      </section>
+
+      <section class="slide">
+	<h2>Required Files</h2>
+	<p><code>nn-topic.md</code>: topics within lesson</p>
+	<ul>
+	  <li>E.g., <code>01-select.md</code></li>
+	  <li>Each should be 10-15 minutes long</li>
+	</ul>
+	<div align="center">
+	  <p>
+	    <em>
+	      These are for instructors and offline reference,
+	      <br/>
+	      <strong>not</strong> to be shown to learners during teaching
+	    </em>
+	  </p>
+	</div>
+      </section>
+
+      <section class="slide">
+	<h2>Required Files</h2>
+	<p>Sub-directories for lesson files</p>
+	<ul>
+	  <li><code>code</code>: source code</li>
+	  <li><code>data</code>: data files</li>
+	  <li><code>fig</code>: figures</li>
 	</ul>
       </section>
 
