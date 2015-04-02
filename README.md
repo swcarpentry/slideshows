@@ -1,5 +1,7 @@
 Software Carpentry Slideshows
 =============================
+To navigate slideshows, use arrow keys
+(<kbd>←</kbd><kbd>→</kbd> or <kbd>↓</kbd><kbd>↑</kbd>).
 
 Ideas
 
