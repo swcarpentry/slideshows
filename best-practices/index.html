@@ -38,7 +38,6 @@
 	  <li>Scientists spend a lot of time writing it</li>
 	  <li>But over 90% are self-taught</li>
 	  <li>They don't know what "good" looks like</li>
-	  <li>So we describe 24 practices in 8 groups</li>
 	</ul>
       </section>
 
@@ -94,7 +93,7 @@
 	<h3 class="rule">Let the Computer Do the Work</h3>
 	<ul>
 	  <li>Computers exist to repeat things quickly</li>
-	  <li>99% accuracy &rArr; 63% of at least one error per hundred repetitions</li>
+	  <li>99% accuracy &rArr; 63% chance of at least one error per hundred repetitions</li>
 	</ul>
       </section>
 
@@ -131,9 +130,9 @@
 	<h2>Rule 2c</h2>
 	<p class="rule">Use a build tool to automate workflows.</p>
 	<ul>
-	  <li>Originally developed for compiling programs</li>
-	  <li>Can be used whenever some files depend on others</li>
-	  <li>Makes workflow explicit</li>
+        <li>Originally developed for compiling programs</li>
+        <li>Coordinates execution of command line programs</li> 
+        <li>Makes workflow explicit</li>
 	</ul>
       </section>
 
@@ -156,8 +155,8 @@
 	<p class="rule">Work in small steps with frequent feedback<br/>and course correction.</p>
 	<ul>
 	  <li>People can concentrate for 45-90 minutes without a break</li>
-	  <li>So size each burst of work to fit that</li>
-	  <li>Longer cycle should be a week or two</li>
+	  <li>Easier to maintain motivation and direction if iterations are a week 
+      or two</li>
 	</ul>
       </section>
 
@@ -166,9 +165,9 @@
 	<p class="rule">Use a version control system.</p>
 	<ul>
 	  <li>Tracks changes</li>
-	  <li>Allows them to be undone</li>
+	  <li>Allows them to be (partially) undone</li>
 	  <li>Supports independent parallel development</li>
-	  <li>Essential for collaboration <a href="#collaborate">collaboration</a></li>
+	  <li>Essential for <a href="#collaborate">collaboration</a></li>
 	</ul>
       </section>
 
@@ -264,7 +263,7 @@
 	  <li>"If I knew what the right answer was, I'd have published by now."</li>
 	  <li>Compare to experimental data</li>
 	  <li>Or to analytic solutions of simple problems</li>
-	  <li>Or to old (trusted) programs</li>
+	  <li>Or to old (trusted) programs (integration testing)</li>
 	  <li>If nothing else, forces scientists to document what "errors" are acceptable</li>
 	</ul>
       </section>
@@ -311,7 +310,8 @@
 	<ul>
 	  <li>Even experts find it hard to predict performance bottlenecks</li>
 	  <li>Small changes to code often have dramatic impact on performance</li>
-	  <li>So get it right, <em>then</em> make it fast</li>
+	  <li>So get it right, <em>then</em> make it fast (with tests to make sure 
+      it stays right)</li>
 	</ul>
       </section>
 
