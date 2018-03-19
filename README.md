@@ -6,6 +6,7 @@ To navigate slideshows, use arrow keys
 Ideas
 
 *  [Introducing Software Carpentry](http://swcarpentry.github.io/slideshows/introducing-software-carpentry/index.html)
+*  [Introduciendo Software Carpentry (en español)](http://raynamharris.github.io/slideshows/introduciendo-SWC-es/index.html)
 *  [Software Carpentry: Lessons Learned](http://swcarpentry.github.io/slideshows/lessons-learned/index.html)
 *  [Best Practices for Scientific Computing](http://swcarpentry.github.io/slideshows/best-practices/index.html)
 
