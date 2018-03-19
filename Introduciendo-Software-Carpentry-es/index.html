@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Introducing Software Carpentry</title>
+    <meta name="narrator" content="Katy Huff" />
+    <meta name="audio" content="voiceover.ogg" />
+    <meta name="timings" content="timings.json" />
+
+    <script src="../css/deckjs-js/deckjs-custom.js"></script>
+    <script>includedeck(["../css/slideshow.css"],{});</script>
+    <style>
+      .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+      a {text-decoration: underline;} /* make links clearer */
+      pre {font-size: 75%;} /* make code blocks smaller */
+    </style>
+  </head>
+  <body>
+    <div class="deck-container">
+
+      <section class="slide title-slide" data-container-class="no-status">
+        <h1 class="var-title"></h1>
+        <p>January 2015</p>
+        <img class="logo" src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" />
+	<aside class="notes">
+	  Hello, and welcome to Software Carpentry.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>Our Mission</h2>
+	<p align="center">
+	  We make researchers in science, engineering, and medicine more productive
+	  by teaching them basic lab skills for scientific computing
+	</p>
+	<aside class="notes">
+	  Our goal is to make scientists and engineers more productive by teaching them fundamental computational skills.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>The Problem</h2>
+	<ul>
+	  <li>
+	    Scientists spend more and more time building and using software
+	  </li>
+	  <li>
+	    <em>Most are primarily self-taught</em>
+	  </li>
+	  <li>
+	    Hard to measure how <em>well</em> they do things
+	  </li>
+	  <li>
+	    But anecdotal evidence suggests "not very"
+	  </li>
+	</ul>
+	<aside class="notes">
+	  Multiple studies have shown that scientists spend
+	  an increasing amount of time building and using software,
+	  and that most of them are primarily self-taught ---
+	  see for example Hannay et al, "How Do Scientists Develop and Use Scientific Software?" (2009),
+	  Prabhu et al, "A Survey of the Practice of Computational Science" (2011),
+	  or <a href="http://www.software.ac.uk/blog/2014-12-04-its-impossible-conduct-research-without-software-say-7-out-10-uk-researchers">this recent survey</a>
+	  by the Software Sustainability Institute.
+	  While it's hard to measure their efficiency and productivity,
+	  anecdotal evidence suggests that there's a lot of room for improvement.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>Our Solution</h2>
+	<ul>
+	  <li>
+	    Scientists teaching scientists
+	  </li>
+	  <li>
+	    Two days of hands-on learning
+	  </li>
+	</ul>
+	<div align="center">
+	  <table>
+	    <tr>
+	      <td>the Unix shell</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>automate repetitive tasks</td>
+	    </tr>
+	    <tr>
+	      <td>Git and GitHub</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>track and share work</td>
+	    </tr>
+	    <tr>
+	      <td>Python or R</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>build modular code</td>
+	    </tr>
+	    <tr>
+	      <td>SQL</td>
+	      <td>&nbsp;&rArr;&nbsp;</td>
+	      <td>manage data</td>
+	    </tr>
+	  </table>
+	</div>
+	<aside class="notes">
+	  Software Carpentry is the solution.
+	  We run intensive two-day classes that give scientists and engineers those fundamental skills.
+	  In two full days,
+	  we cover the basics of the Unix shell, version control with Git, programming in Python or R, and using SQL.
+	  What we're really showing them though, is how to automate repetitive tasks,
+	  how to track and share their work,
+	  how to grow a program in a modular, testable, reusable way,
+	  and the difference between structured and unstructured data.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>Outcomes</h2>
+	<ul>
+	  <li>
+	    10-20% improvement in productivity is common
+	  </li>
+	  <li>
+	    <a href="http://software-carpentry.org/pages/testimonials.html">10X isn't rare</a>
+	  </li>
+	  <li>
+	    Do the old things faster
+	  </li>
+	  <li>
+	    Tackle new problems
+	  </li>
+	  <li>
+	    Ready for HPC, the cloud, big data, ...
+	  </li>
+	  <li>
+	    Start <em>doing</em> open science
+	  </li>
+	</ul>
+	<aside class="notes">
+	  We can often save people 10 - 20% of their time
+	  and it's not unusual for attendees to report a tenfold savings.
+	  We also give people the technical skills they need to make use of
+	  high-performance computing, the cloud, and other new possibilities,
+	  and to play an active role in changing the way science itself is done.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>The Details</h2>
+	<ul>
+	  <li>
+	    Materials are all open access
+	  </li>
+	  <li>
+	    Instructors are volunteers
+	  </li>
+	  <li>
+	    Host site pays for instructor travel and accommodation
+	  </li>
+	  <li>
+	    Administrative fee to cover central costs if we're helping organize
+	  </li>
+	</ul>
+	<aside class="notes">
+	  Our notes and examples are all freely reusable under open licenses,
+	  and our instructors are all volunteers,
+	  so the only cost to host sites is their travel and accommodation
+	  plus an administrative fee to cover instructor training, curriculum development, and so on
+	  for workshops that we help to organize
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>Where We've Been</h2>
+	<div align="center">
+	  <p><img src="../img/workshops-2010-2014.png" alt="Workshops 2010-2014" /></p>
+	  <p>2014: 130 workshops for 4500 people</p>
+	</div>
+	<aside class="notes">
+	  It all seems to be working:
+	  we ran 130 workshops for over 4500 people in 2014 alone,
+	  and now have more than 280 qualified instructors.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>How We're Organized</h2>
+	<ul>
+	  <li>
+	    Sheltered by <a href="http://numfocus.org">NumFOCUS</a>,
+	    a 501(c)3 non-profit in the United States
+	  </li>
+	  <li>
+	    Steering Committee elected by and from our members
+	  </li>
+	  <li>
+	    Advisory Council made up of scientists
+	    and representatives from sponsoring organizations
+	  </li>
+	</ul>
+	<aside class="notes">
+	  We also now have non-profit status in the United States,
+	  with a Steering Committee elected by and from our members
+	  and an Advisory Council made up of scientists and
+	  representatives from sponsoring organizations.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>For Individuals</h2>
+	<ul>
+	  <li>
+	    Come and learn
+	  </li>
+	  <li>
+	    Host a workshop
+	  </li>
+	  <li>
+	    Become an instructor
+	  </li>
+	  <li>
+	    Create and improve lessons
+	  </li>
+	  <li>
+	    Help build tools
+	  </li>
+	</ul>
+	<aside class="notes">
+	  If you'd like to help us,
+	  you can take part in a workshop,
+	  host one,
+	  become an instructor,
+	  or help us create and improve our teaching materials.
+	</aside>
+      </section>
+
+      <section class="slide">
+	<h2>For Institutions</h2>
+	<ul>
+	  <li>
+	    <em>Partners</em> coordinate workshops regionally
+	  </li>
+	  <li>
+	    <em>Affiliates</em> run multiple workshops a year
+	  </li>
+	  <li>
+	    <em>Sponsors</em> help underwrite special workshops
+	  </li>
+	  <li>
+	    <em>Donors</em> support us financially
+	  </li>
+	</ul>
+	<aside class="notes">
+	  We also offer several levels of institutional partnership,
+	  ranging from helping with special-purpose workshops
+	  to becoming a regional hub.
+	</aside>
+      </section>
+
+      <section class="slide" data-container-class="no-status">
+	<h2>Learn More</h2>
+	<div align="center">
+	  <p>
+	    <a href="http://software-carpentry.org">http://software-carpentry.org</a>
+	  </p>
+	  <p>
+	    <a href="mailto:admin@software-carpentry.org">admin@software-carpentry.org</a>
+	  </p>
+	  <p><em>Thank you for listening</em></p>
+          <p><img src="../img/software-carpentry-banner.png" alt="Software Carpentry Logo" /></p>
+	</div>
+	<aside class="notes">
+	  If you'd like to learn more,
+	  please visit our website or email admin@software-carpentry.org.
+	  Thank you for listening.
+	</aside>
+      </section>
+
+      <a class="deck-prev-link">&larr;</span><a class="deck-next-link">&rarr;</a>
+      <p class="deck-status deck-progress-10"><span class="deck-status-current"></span> / <span class="deck-status-total"></span></p>
+
+    </div>
+  </body>
+</html>
